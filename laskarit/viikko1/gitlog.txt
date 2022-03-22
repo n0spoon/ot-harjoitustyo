@@ -1,0 +1,114 @@
+haxniilo@lx0-fuxi250:~/kurssit/ohjelmistotekniikka2022/ot_viikko1$ git log --stat | cat
+commit b64367010e48e0f54cf4c242459f027d3d0b0ab1
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 19:29:59 2022 +0200
+
+    file1 poistettu ja file2 uudelleennimetty file22.  terminaali tosin väittää, että tiedosto file2 olisi poistettu ja tiedosto file1 oltaisi nimetty file22 - joka ei pidä paikkaansa???
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4fd31a9005d61913580eda423d1dfb0ff0e30ad1
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 19:23:18 2022 +0200
+
+    kansio tiedostoja ja tiedostot file1, file2 ja file3 lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 80b96c827be3928b8cf3317bd0b1bafe10e790d1
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 19:10:02 2022 +0200
+
+    poistettu ja lisätty dataa eka.txt ja kolmas.txt
+
+ eka.txt    | 12 ++++++------
+ kolmas.txt |  9 ++++++++-
+ 2 files changed, 14 insertions(+), 7 deletions(-)
+
+commit 8aae6eea9beaf292386da394f6d1b6c1ae3b79fb
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 19:05:15 2022 +0200
+
+    tiedosto.txt uudelleennimetty eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6bb902a9a33de6d7ced98184941dd7347e6b551d
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 19:04:01 2022 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit c5f1777e3a0236bb8e66b29808e227ec0a24b368
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 19:00:16 2022 +0200
+
+    tiedosto.txt poistettu ja lisätty tekstiä
+
+ tiedosto.txt | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
+
+commit 0999b543ab85cce8f448479ebb2aa72ebb562711
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 18:46:19 2022 +0200
+
+    tiedostoon lisätty paljon tekstiä
+
+ tiedosto.txt | 49 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
+
+commit 7b38d795f43faa5076ef2b96f555630887b5c53a
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 18:40:02 2022 +0200
+
+    stuff-kansio ja jokin-tiedosto luotu
+
+ stuff/jokin | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 740a5449326359d8ca9a20709884a0ef18685f99
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 18:38:23 2022 +0200
+
+    toinen ja kolmas muokattu
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit aa6397ad176d8de4d2fdc95a2433d04ddb2a680a
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 18:36:47 2022 +0200
+
+    kolmas luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit ce75d7efc0b32afd703e4afac6bab9f493b34ddf
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 18:33:26 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit e754a3931a6e9ddc2c3f529a32a4346231649645
+Author: n0spoon <xtrifo@gmail.com>
+Date:   Tue Mar 22 18:30:48 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
