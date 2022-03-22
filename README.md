@@ -1,10 +1,10 @@
-#Tämä on otsikko
+# Tämä on otsikko
 - **lihavoitua tekstiä**
 - *vinoa tekstiä*
 - normaalia leipää
 
 
-##Linkit
+## Linkit
 
 [gitlog.txt](https://github.com/n0spoon/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
