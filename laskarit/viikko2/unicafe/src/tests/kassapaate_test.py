@@ -36,11 +36,11 @@ class TestKassapaate(unittest.TestCase):
 
         if self.assertFalse(self.kassapaate.syo_maukkaasti_kortilla(self.kortti)):
             self.assertEqual(self.kortti.saldo, 0)
-            self.assertEqual(self.kassapaate.maukkaat, 0)
+            self.assertEqual(self.kassapaate.maukkaat, 1)
 
         if self.assertFalse(self.kassapaate.syo_edullisesti_kortilla(self.kortti)):
             self.assertEqual(self.kortti.saldo, 0)
-            self.assertEqual(self.kassapaate.edulliset, 0)
+            self.assertEqual(self.kassapaate.edulliset, 1)    
     
     def test_kortin_lataus_toimii(self):
         if self.kassapaate.lataa_rahaa_kortille(self.kortti, 360):
