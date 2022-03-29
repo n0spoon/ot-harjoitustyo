@@ -1,4 +1,6 @@
-# Tämä on otsikko
+# Laskin
+Laskimella on mahdollista suorittaa laskutoimituksia
+
 - **lihavoitua tekstiä**
 - *vinoa tekstiä*
 - normaalia leipää
@@ -10,4 +12,6 @@
 
 [komentorivi.txt](https://github.com/n0spoon/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-lisätty muutos
+## Dokumentaatio
+
+-[Vaatimusmäärittely](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
