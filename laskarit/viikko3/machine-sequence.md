@@ -16,27 +16,35 @@
      activate Engine
      Engine-->>FuelTank: consume(5)
      deactivate Engine
+     activate FuelTank
      FuelTank->>FuelTank: fuel_contents = 35
+     deactivate FuelTank
      Machine->>Engine: is_running()
      activate Engine
      Engine-->>Machine: True
      Machine->>Engine: use_energy()
      Engine-->>FuelTank: consume(10)
+     activate FuelTank
      deactivate Engine
      FuelTank->>FuelTank: fuel_contents = 25
+     deactivate FuelTank
      Machine->>Engine: running
      activate Engine
      Engine-->>Machine: True
      Machine->>Engine: use_energy()
      Engine-->>FuelTank: consume(10)
+     activate FuelTank
      deactivate Engine
      FuelTank->>FuelTank: fuel_contents = 15
+     deactivate FuelTank
      Machine->>Engine: running
      activate Engine
      Engine-->>Machine: True
      Machine->>Engine: use_energy()
      Engine-->>FuelTank: consume(10)
+     activate FuelTank
      deactivate Engine
      FuelTank->>FuelTank: fuel_contents = 5
+     deactivate FuelTank
      deactivate Machine
 ```
