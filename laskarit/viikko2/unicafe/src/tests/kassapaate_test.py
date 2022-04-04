@@ -18,11 +18,11 @@ class TestKassapaate(unittest.TestCase):
         self.assertEqual(self.kassapaate.syo_maukkaasti_kateisella(100), 100)
 
         if self.assertEqual(self.kassapaate.syo_edullisesti_kateisella(250), 10):
-            self.assertEqual(self.kassapaate.kassassa_rahaa, 100010)
+            self.assertEqual(self.kassapaate.kassassa_rahaa, 100240)
             self.assertEqual(self.kassapaate.edulliset, 1)
 
         if self.assertEqual(self.kassapaate.syo_maukkaasti_kateisella(410), 10):
-            self.assertEqual(self.kassapaate.kassassa_rahaa, 100010)
+            self.assertEqual(self.kassapaate.kassassa_rahaa, 100640)
             self.assertEqual(self.kassapaate.maukkaat, 1)
 
     def test_korttiosto_toimii(self):
