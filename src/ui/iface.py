@@ -19,9 +19,11 @@ class IO:
                 self.write("False Command")
                 self.print_guide()
                 continue
+            a = float(input("Enter first number: "))
+            b = float(input("Enter second number: "))
             run_command = self._commands[command]
             if callable(run_command):
-                run_command()
+                run_command(a,b)
 
     def print_guide(self):
         print("Commands for Calculator:\nEnter + to sum two numbers\nEnter - to subtract latter number from the first\nEnter x to stop")

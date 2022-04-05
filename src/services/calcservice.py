@@ -5,25 +5,17 @@ class CalculatorService:
     def __init__(self):
         self._calculations = 0
 
-    def isFloat(self,value):
-        try:
-            float(value)
-            return True
-        except ValueError:
-            return False
+    def simpleSum(self,a,b):
+        return a+b
 
-    def sumService(self):
-        a = float(input("Enter first number: "))
-        b = float(input("Enter second number: "))
+    def sumService(self,a,b):
         sum = (a+b)
         if int(sum):
             sum = int(a+b)
         self._calculations+=1
         return print(f"{a} + {b} = {sum}")
     
-    def subService(self):
-        a = float(input("Enter first number: "))
-        b = float(input("Enter second number: "))
+    def subService(self,a,b):
         sub = (a-b)
         if int(sub):
             sub = int(a-b)
