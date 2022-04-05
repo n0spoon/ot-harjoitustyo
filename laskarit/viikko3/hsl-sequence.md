@@ -23,16 +23,19 @@
      m->>k: Kioski()
      activate k
      m->>k: osta_matkakortti("Kalle")
-     activate mk
      k-->>mk: Matkakortti("Kalle")
+     activate mk
+     deactivate k
      mk->>mk: self.omistaja = "Kalle"
      mk->>mk: self.pvm = 0
      mk->>mk: self.kk = 0
      mk->>mk: self.arvo = 0
      deactivate mk
      k->>k: if arvo
+     activate k
      k->>k: False
      k-->>m: uusi_kortti
+     deactivate mk
      deactivate k
      m->>lala: lataa_arvoa(kallen_kortti, 3)
      activate lala
@@ -51,6 +54,8 @@
      activate mk
      mk->>mk: self.arvo = self.arvo - 1.5
      mk->>mk: self.arvo = 1.5
+     activate lula
+     lula->>m: True
      deactivate mk
      m->>lula: osta_lippu(kallen_kortti, 2)
      activate lula
