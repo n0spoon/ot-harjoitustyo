@@ -5,6 +5,26 @@ Laskimella on mahdollista suorittaa laskutoimituksia
 - *vinoa tekstiä*
 - normaalia leipää
 
+## Installation
+- Install dependencies
+```bash
+poetry install
+```
+
+- Start application
+```bash
+poetry run invoke start
+```
+
+- Run tests with pytest
+```bash
+poetry run invoke test
+```
+
+- Generate coverage report
+```bash
+poetry run invoke coverage-report
+```
 
 ## Linkit
 
