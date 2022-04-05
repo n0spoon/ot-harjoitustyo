@@ -1,5 +1,3 @@
-## Sovelluslogiikka
-
 ```mermaid
  classDiagram
      Monopoli "1" -- "2" Noppa
@@ -18,28 +16,4 @@
      Pelilauta "1" -- "4" Asema
      Pelilauta "1" -- "2" Laitos
      Pelilauta "1" -- "22" Katu
-     Aloitusruutu --|> Ruutu
-     Vankila --|> Ruutu
-     Sattuma --|> Ruutu
-     Yhteismaa --|> Ruutu
-     Asema --|> Ruutu
-     Laitos --|> Ruutu
-     Katu --|> Ruutu
-     Aloitusruutu: toiminto()
-     Vankila: toiminto()
-     Sattuma: toiminto()
-     Yhteismaa: toiminto()
-     Asema: toiminto()
-     Laitos: toiminto()
-     Katu: toiminto()
-     Katu: str nimi
-     Sattuma .. Kortti
-     Yhteismaa .. Kortti
-     Kortti: toiminto()
-     Katu "1" -- "0..4" Talo
-     Katu "1" -- "0..1" Hotelli
-     Pelaaja .. Katu
-     Pelaaja .. Raha
-     Raha: int maara
-     Ruutu: seuraavaRuutu()
 ```
