@@ -53,8 +53,8 @@
      activate mk
      mk->>mk: self.arvo = self.arvo - 1.5
      mk->>mk: self.arvo = 1.5
-     activate lula
      lula->>m: True
+     activate lula
      deactivate lula
      deactivate mk
      m->>lula: osta_lippu(kallen_kortti, 2)
