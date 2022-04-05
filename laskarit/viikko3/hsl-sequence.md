@@ -35,7 +35,6 @@
      activate k
      k->>k: False
      k-->>m: uusi_kortti
-     deactivate mk
      deactivate k
      m->>lala: lataa_arvoa(kallen_kortti, 3)
      activate lala
