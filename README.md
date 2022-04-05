@@ -1,10 +1,6 @@
 # Laskin
 Laskimella on mahdollista suorittaa laskutoimituksia
 
-- **lihavoitua tekstiä**
-- *vinoa tekstiä*
-- normaalia leipää
-
 ## Installation
 - Install dependencies
 ```bash
