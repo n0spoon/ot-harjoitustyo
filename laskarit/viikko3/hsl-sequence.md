@@ -31,8 +31,8 @@
      mk->>mk: self.kk = 0
      mk->>mk: self.arvo = 0
      deactivate mk
-     k->>k: if arvo
      activate k
+     k->>k: if arvo
      k->>k: False
      k-->>m: uusi_kortti
      deactivate k
@@ -55,6 +55,7 @@
      mk->>mk: self.arvo = 1.5
      activate lula
      lula->>m: True
+     deactivate lula
      deactivate mk
      m->>lula: osta_lippu(kallen_kortti, 2)
      activate lula
