@@ -1,4 +1,4 @@
-## Sovelluslogiikka
+## Monopoli
 
 ```mermaid
  classDiagram
