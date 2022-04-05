@@ -32,7 +32,9 @@ poetry run invoke coverage-report
 
 [komentorivi.txt](https://github.com/n0spoon/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
+
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpito](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [Changelog](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
