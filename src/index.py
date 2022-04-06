@@ -1,4 +1,3 @@
-#from calcservice import CalculatorService
 from ui.iface import IO
 
 def main():

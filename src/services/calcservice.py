@@ -1,26 +1,42 @@
-#from iface import *
-#import index
-
 class CalculatorService:
     def __init__(self):
-        self._calculations = 0
+        self._calculations = []
+
+    def stringToNumber(self,s):
+        try:
+            return int(str(s),0)
+        except:
+            return float(s)
 
     def simpleSum(self,a,b):
+        a = self.stringToNumber(a)
+        b = self.stringToNumber(b)
         return a+b
 
     def sumService(self,a,b):
+        a = self.stringToNumber(a)
+        b = self.stringToNumber(b)
         sum = (a+b)
-        if int(sum):
-            sum = int(a+b)
-        self._calculations+=1
-        return print(f"{a} + {b} = {sum}")
+        pieces = str(sum).split(".")
+        if len(pieces[-1]) == 1: 
+            last = int(pieces[-1])
+            if last == 0:
+                sum = int(sum)
+        self._calculations.append(sum)
+        return f"{a} + {b} = {sum}"
+
     
     def subService(self,a,b):
+        a = self.stringToNumber(a)
+        b = self.stringToNumber(b)
         sub = (a-b)
-        if int(sub):
-            sub = int(a-b)
-        self._calculations+=1
-        return print(f"{a} - {b} = {sub}")
+        pieces = str(sub).split(".")
+        if len(pieces[-1]) == 1: 
+            last = int(pieces[-1])
+            if last == 0:
+                sub = int(sub)
+        self._calculations.append(sub)
+        return f"{a} - {b} = {sub}"
 
     def calculations(self):
-        return self._calculations 
+        return len(self._calculations)
