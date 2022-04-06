@@ -15,7 +15,7 @@ class IO:
             if command == "x":
                 break
             if command not in self._commands:
-                self.write("False Command")
+                print("Error: False Command")
                 self.print_guide()
                 continue
             a = input("Enter first number: ")
@@ -25,10 +25,7 @@ class IO:
                 print(calculation(a,b))
 
     def print_guide(self):
-        print("Commands for Calculator:\nEnter + to sum two numbers\nEnter - to subtract latter number from the first\nEnter x to stop")
+        print("-------------------------------------------------\nCommands for Calculator:\n Enter + to sum two numbers\n Enter - to subtract latter number from the first\n Enter x to stop\n-------------------------------------------------\n")
 
-#    def read(self,command):
-#        return input("Enter command:")
-    
     def write(self,thing):
         return print(thing)

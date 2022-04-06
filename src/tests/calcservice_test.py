@@ -1,5 +1,5 @@
 from services.calcservice import CalculatorService
-from ui.iface import IO
+#from ui.iface import IO
 import unittest
 
 class TestCalculatorService(unittest.TestCase):
