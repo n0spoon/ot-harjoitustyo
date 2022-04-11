@@ -34,7 +34,7 @@ poetry run invoke coverage-report
 poetry run invoke lint
 ```
 
-## Dokumentaatio
+## Documentation
 
 - [Vaatimusmäärittely](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpito](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
