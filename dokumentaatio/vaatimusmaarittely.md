@@ -4,13 +4,13 @@
 Sovellus toimii laskimena, jolla on mahdollista suorittaa laskutoimenpiteitä ja tallentaa tuloksia muistiin.  Alustavasti sovellus on suunnattu yksittäiselle käyttäjälle.
 
 ## Suunniteltu toiminnallisuus
-- Tekstikäyttöliittymällä toimiva laskin kokonais- ja liukuluvuille
-- Positiivisten ja negatiivisten reaalilukujen käsittelyyn
+- Tekstikäyttöliittymällä toimiva laskin kokonais- ja liukuluvuille "tehty"
+- Positiivisten ja negatiivisten reaalilukujen käsittelyyn "tehty"
 - Laskutoiminnot
-  - Summa
-  - Erotus
-  - Jako
-  - Kerto
+  - Summa "tehty"
+  - Erotus "tehty"
+  - Jako "tehty"
+  - Kerto "tehty"
   - Neliöjuuret
   - Luku toiseen potenssiin
   - Käänteisluku

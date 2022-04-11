@@ -22,6 +22,16 @@ poetry run invoke test
 poetry run invoke coverage-report
 ```
 
+- Check errors with Pylint
+```bash
+poetry run invoke lint
+```
+
+- Format code in /src -directory with autopep8
+```bash
+poetry run invoke format
+```
+
 ## Dokumentaatio
 
 - [Vaatimusmäärittely](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
