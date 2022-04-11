@@ -44,7 +44,7 @@ class TestCalculatorService(unittest.TestCase):
     def test_mul_service_integer(self):
         self.assertEqual(self.calculator.mul_service(
             self.z, self.z), "4 * 4 = 16\n")
-    
+
     def test_mul_service_float(self):
         self.assertEqual(self.calculator.mul_service(
             0.15, self.z), "0.15 * 4 = 0.6\n")
