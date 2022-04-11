@@ -1,8 +1,10 @@
 from ui.iface import IO
 
+
 def main():
-    Calculator = IO()
-    Calculator.start()
+    calculator = IO()
+    calculator.start()
+
 
 if __name__ == '__main__':
     main()

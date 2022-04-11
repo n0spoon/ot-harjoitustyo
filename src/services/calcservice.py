@@ -2,41 +2,66 @@ class CalculatorService:
     def __init__(self):
         self._calculations = []
 
-    def stringToNumber(self,s):
+    def string_to_number(self, var_s):
         try:
-            return int(str(s),0)
+            return int(str(var_s), 0)
         except:
-            return float(s)
+            return float(var_s)
 
-    def simpleSum(self,a,b):
-        a = self.stringToNumber(a)
-        b = self.stringToNumber(b)
-        return a+b
+    def simple_sum(self, var_a, var_b):
+        var_a = self.string_to_number(var_a)
+        var_b = self.string_to_number(var_b)
+        return var_a+var_b
 
-    def sumService(self,a,b):
-        a = self.stringToNumber(a)
-        b = self.stringToNumber(b)
-        sum = (a+b)
-        pieces = str(sum).split(".")
-        if len(pieces[-1]) == 1: 
+    def sum_service(self, var_a, var_b):
+        var_a = self.string_to_number(var_a)
+        var_b = self.string_to_number(var_b)
+        result = (var_a+var_b)
+        pieces = str(result).split(".")
+        if len(pieces[-1]) == 1:
             last = int(pieces[-1])
             if last == 0:
-                sum = int(sum)
-        self._calculations.append(sum)
-        return f"{a} + {b} = {sum}"
+                result = int(result)
+        self._calculations.append(result)
+        return f"{var_a} + {var_b} = {result}\n"
 
-    
-    def subService(self,a,b):
-        a = self.stringToNumber(a)
-        b = self.stringToNumber(b)
-        sub = (a-b)
-        pieces = str(sub).split(".")
-        if len(pieces[-1]) == 1: 
+    def sub_service(self, var_a, var_b):
+        var_a = self.string_to_number(var_a)
+        var_b = self.string_to_number(var_b)
+        result = (var_a-var_b)
+        pieces = str(result).split(".")
+        if len(pieces[-1]) == 1:
             last = int(pieces[-1])
             if last == 0:
-                sub = int(sub)
-        self._calculations.append(sub)
-        return f"{a} - {b} = {sub}"
+                result = int(result)
+        self._calculations.append(result)
+        return f"{var_a} - {var_b} = {result}\n"
+
+    def mul_service(self, var_a, var_b):
+        var_a = self.string_to_number(var_a)
+        var_b = self.string_to_number(var_b)
+        result = (var_a*var_b)
+        pieces = str(result).split(("."))
+        if len(pieces[-1]) == 1:
+            last = int(pieces[-1])
+            if last == 0:
+                result = int(result)
+        self._calculations.append(result)
+        return f"{var_a} * {var_b} = {result}\n"
+
+    def div_service(self, var_a, var_b):
+        var_a = self.string_to_number(var_a)
+        var_b = self.string_to_number(var_b)
+        if var_b == 0:
+            return "Division by Zero isn't allowed\n"
+        result = (var_a/var_b)
+        pieces = str(result).split(("."))
+        if len(pieces[-1]) == 1:
+            last = int(pieces[-1])
+            if last == 0:
+                result = int(result)
+        self._calculations.append(result)
+        return f"{var_a} / {var_b} = {result}\n"
 
     def calculations(self):
         return len(self._calculations)
