@@ -1,5 +1,4 @@
 from services.calculation_service import CalculationService
-from repositories.calculation_repository import CalculationRepository
 import unittest
 
 
@@ -9,7 +8,6 @@ class TestCalculationRepository(unittest.TestCase):
         self.y = 3
         self.z = 4
         self.calculator = CalculationService()
-        self.calcdata = CalculationRepository()
 
     def test_calculations_at_start(self):
         self.assertEqual(self.calculator.count(), 0)
