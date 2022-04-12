@@ -8,3 +8,6 @@
 - Pylint otettu käyttöön projektille ja lähdekoodi siistitty(formatoitu)
 - Lisätty toiminnallisuus jako- ja kertolaskuille, ja testit näille toiminnallisuuksille
 - Luotu poetry run invoke format ja poetry run invoke lint -poetrytehtävät
+- Lisätty toiminnallisuus, jolla voi tarkastaa suoritettujen laskutoimitusten määrän
+- Siirretty laskutoimitusten tallennus luokkaan calculation_repository.py kansiossa repositories
+- Parannettu ja selkeytetty käyttöliittymän io.py ja palvelun calculation_service.py toimintaa
