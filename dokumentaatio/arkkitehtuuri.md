@@ -17,5 +17,6 @@ Class CalculationService forms and responds for application logic, which represe
      CalculationService: sum_service()
      CalculationService: sub_service()
 }
+```
 
 ![Package Structure and Classes](./photos/architecture-package-and-classes.png)
