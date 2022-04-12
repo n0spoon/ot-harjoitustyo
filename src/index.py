@@ -1,4 +1,4 @@
-from ui.iface import IO
+from ui.io import IO
 
 
 def main():

@@ -1,5 +1,4 @@
-from services.calcservice import CalculatorService
-#from ui.iface import IO
+from services.calculation_service import CalculationService
 import unittest
 
 
@@ -8,14 +7,7 @@ class TestCalculatorService(unittest.TestCase):
         self.x = 2
         self.y = 3
         self.z = 4
-        self.calculator = CalculatorService()
-
-    def test_calculations_at_start(self):
-        self.assertEqual(self.calculator.calculations(), 0)
-
-    def test_simple_sum(self):
-        self.assertEqual(self.calculator.simple_sum(
-            self.x, self.z), 6)
+        self.calculator = CalculationService()
 
     def test_sum_service_integer(self):
         self.assertEqual(self.calculator.sum_service(
