@@ -13,9 +13,14 @@ Class CalculationService forms and responds for application logic, which represe
 ```mermaid
  classDiagram
      class CalculationService{
-     CalculationService: string_to_number()
-     CalculationService: sum_service()
+     : string_to_number()
+     : sum_service()
      : sub_service()
+     : mul_service()
+     : div_service()
+     : count()
+     : return_calculations()
+     : add()
 }
 ```
 
