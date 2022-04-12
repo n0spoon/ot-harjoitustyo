@@ -64,3 +64,7 @@ class TestCalculatorService(unittest.TestCase):
     def test_div_service_zero_as_denominator(self):
         self.assertEqual(self.calculator.div_service(
             self.x, 0), "Division by Zero isn't allowed\n")
+
+    def test_div_service_amounts_to_zero(self):
+        self.assertEqual(self.calculator.div_service(
+            0, self.x), "0 / 2 = 0\n")

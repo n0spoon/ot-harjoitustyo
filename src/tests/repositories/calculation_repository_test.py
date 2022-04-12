@@ -24,3 +24,13 @@ class TestCalculationRepository(unittest.TestCase):
         self.calculator.sub_service("2", "3")
         self.calculator.sub_service(2.0, 3.5)
         self.assertEqual(self.calculator.count(), 2)
+    
+    def test_calculations_after_two_div(self):
+        self.calculator.div_service("2", "3")
+        self.calculator.div_service(2.0, 3.5)
+        self.assertEqual(self.calculator.count(), 2)
+
+    def test_calculations_after_two_mul(self):
+        self.calculator.mul_service("2", "3")
+        self.calculator.mul_service(2.0, 3.5)
+        self.assertEqual(self.calculator.count(), 2)
