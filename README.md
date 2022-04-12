@@ -37,5 +37,6 @@ poetry run invoke lint
 ## Documentation
 
 - [Vaatimusmäärittely](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
-- [Työaikakirjanpito](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [Working Hours](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 - [Changelog](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
+- [Architecture](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
