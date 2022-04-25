@@ -7,6 +7,17 @@ class CalculationService:
         self._calcdata = CalculationRepository()
 
     def string_to_number(self, var_s):
+        var_i = var_s
+        if var_i[0] == "-":
+            var_i = var_i.lstrip("-")
+        if "." in var_i:
+            pieces = var_i.split(".")
+            pieces_a = pieces[0]
+            pieces_b = pieces[1]
+            if (pieces_a.isnumeric() and pieces_b.isnumeric()) == False:
+                return print(f"{var_s} is not a number")
+        elif var_s.isnumeric() == False:
+            return print(f"{var_s} is not a number")
         try:
             return int(str(var_s), 0)
         except ValueError:
@@ -17,7 +28,7 @@ class CalculationService:
         var_b = self.string_to_number(var_b)
         result = (var_a+var_b)
         result = self.clean_result(result)
-        self.add(result)
+        self.add_result(result)
         return f"{var_a} + {var_b} = {result}\n"
 
     def sub_service(self, var_a, var_b):
@@ -25,7 +36,7 @@ class CalculationService:
         var_b = self.string_to_number(var_b)
         result = (var_a-var_b)
         result = self.clean_result(result)
-        self.add(result)
+        self.add_result(result)
         return f"{var_a} - {var_b} = {result}\n"
 
     def mul_service(self, var_a, var_b):
@@ -33,7 +44,7 @@ class CalculationService:
         var_b = self.string_to_number(var_b)
         result = (var_a*var_b)
         result = self.clean_result(result)
-        self.add(result)
+        self.add_result(result)
         return f"{var_a} * {var_b} = {result}\n"
 
     def div_service(self, var_a, var_b):
@@ -43,7 +54,7 @@ class CalculationService:
             return "Division by Zero isn't allowed\n"
         result = (var_a/var_b)
         result = self.clean_result(result)
-        self.add(result)
+        self.add_result(result)
         return f"{var_a} / {var_b} = {result}\n"
 
     def sqrt_service(self, var_a):
@@ -52,7 +63,7 @@ class CalculationService:
             return f"Error: Input number {var_a} is not a positive number\n"
         result = math.sqrt(var_a)
         result = f"±{self.clean_result(result)}"
-        self.add(result)
+        self.add_result(result)
         return f"√{var_a} = {result}\n"
 
     def clean_result(self, result):
@@ -69,5 +80,5 @@ class CalculationService:
     def return_calculations(self):
         return self._calcdata.print_calculations()
 
-    def add(self, result):
+    def add_result(self, result):
         self._calcdata.add_calculation(result)
