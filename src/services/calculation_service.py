@@ -1,4 +1,3 @@
-import math
 from repositories.calculation_repository import CalculationRepository
 
 
@@ -66,7 +65,7 @@ class CalculationService:
             var_x = self.string_to_number(var_a)
             if var_x < 0:
                 return f"Error: Input {var_x} is not a positive number\n"
-            result = math.sqrt(var_x)
+            result = var_x**(1/2)
             result = f"±{self.clean_result(result)}"
             self.add_result(result)
             return f"√{var_x} = {result}\n"
