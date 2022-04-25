@@ -31,3 +31,28 @@ class TestCalculationRepository(unittest.TestCase):
         self.calculator.mul_service("2", "3")
         self.calculator.mul_service(2.0, 3.5)
         self.assertEqual(self.calculator.count(), 2)
+
+    def test_calculations_after_two_sqrt(self):
+        self.calculator.sqrt_service("4")
+        self.calculator.sqrt_service(4)
+        self.assertEqual(self.calculator.count(), 2)
+
+    def test_calculations_after_error_sum(self):
+        self.calculator.sum_service("lkl.840", 99)
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_after_error_sub(self):
+        self.calculator.sub_service("iuh.457", 13)
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_after_error_div(self):
+        self.calculator.div_service("987.ijkl", 313)
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_after_error_mul(self):
+        self.calculator.mul_service("456.oij", 42)
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_after_error_sqrt(self):
+        self.calculator.sqrt_service("yep.123")
+        self.assertEqual(self.calculator.count(), 0)

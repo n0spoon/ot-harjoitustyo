@@ -7,64 +7,71 @@ class CalculationService:
         self._calcdata = CalculationRepository()
 
     def string_to_number(self, var_s):
-        var_i = var_s
-        if var_i[0] == "-":
-            var_i = var_i.lstrip("-")
-        if "." in var_i:
-            pieces = var_i.split(".")
-            pieces_a = pieces[0]
-            pieces_b = pieces[1]
-            if (pieces_a.isnumeric() and pieces_b.isnumeric()) == False:
-                return print(f"{var_s} is not a number")
-        elif var_s.isnumeric() == False:
-            return print(f"{var_s} is not a number")
         try:
             return int(str(var_s), 0)
         except ValueError:
-            return float(var_s)
+            try:
+                return float(var_s)
+            except ValueError:
+                return print(f"Error: {var_s} is not a number")
 
     def sum_service(self, var_a, var_b):
-        var_a = self.string_to_number(var_a)
-        var_b = self.string_to_number(var_b)
-        result = (var_a+var_b)
-        result = self.clean_result(result)
-        self.add_result(result)
-        return f"{var_a} + {var_b} = {result}\n"
+        try:
+            var_x = self.string_to_number(var_a)
+            var_y = self.string_to_number(var_b)
+            result = (var_x+var_y)
+            result = self.clean_result(result)
+            self.add_result(result)
+            return f"{var_x} + {var_y} = {result}\n"
+        except TypeError:
+            return ""
 
     def sub_service(self, var_a, var_b):
-        var_a = self.string_to_number(var_a)
-        var_b = self.string_to_number(var_b)
-        result = (var_a-var_b)
-        result = self.clean_result(result)
-        self.add_result(result)
-        return f"{var_a} - {var_b} = {result}\n"
+        try:
+            var_x = self.string_to_number(var_a)
+            var_y = self.string_to_number(var_b)
+            result = (var_x-var_y)
+            result = self.clean_result(result)
+            self.add_result(result)
+            return f"{var_x} - {var_y} = {result}\n"
+        except TypeError:
+            return ""
 
     def mul_service(self, var_a, var_b):
-        var_a = self.string_to_number(var_a)
-        var_b = self.string_to_number(var_b)
-        result = (var_a*var_b)
-        result = self.clean_result(result)
-        self.add_result(result)
-        return f"{var_a} * {var_b} = {result}\n"
+        try:
+            var_x = self.string_to_number(var_a)
+            var_y = self.string_to_number(var_b)
+            result = (var_x*var_y)
+            result = self.clean_result(result)
+            self.add_result(result)
+            return f"{var_x} * {var_y} = {result}\n"
+        except TypeError:
+            return ""
 
     def div_service(self, var_a, var_b):
-        var_a = self.string_to_number(var_a)
-        var_b = self.string_to_number(var_b)
-        if var_b == 0:
-            return "Division by Zero isn't allowed\n"
-        result = (var_a/var_b)
-        result = self.clean_result(result)
-        self.add_result(result)
-        return f"{var_a} / {var_b} = {result}\n"
+        try:
+            var_x = self.string_to_number(var_a)
+            var_y = self.string_to_number(var_b)
+            if var_y == 0:
+                return "Division by Zero isn't allowed\n"
+            result = (var_x/var_y)
+            result = self.clean_result(result)
+            self.add_result(result)
+            return f"{var_x} / {var_y} = {result}\n"
+        except TypeError:
+            return ""
 
     def sqrt_service(self, var_a):
-        var_a = self.string_to_number(var_a)
-        if var_a < 0:
-            return f"Error: Input number {var_a} is not a positive number\n"
-        result = math.sqrt(var_a)
-        result = f"±{self.clean_result(result)}"
-        self.add_result(result)
-        return f"√{var_a} = {result}\n"
+        try:
+            var_x = self.string_to_number(var_a)
+            if var_x < 0:
+                return f"Error: Input {var_x} is not a positive number\n"
+            result = math.sqrt(var_x)
+            result = f"±{self.clean_result(result)}"
+            self.add_result(result)
+            return f"√{var_x} = {result}\n"
+        except TypeError:
+            return ""
 
     def clean_result(self, result):
         pieces = str(result).split(".")

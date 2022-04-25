@@ -21,6 +21,10 @@ class TestCalculatorService(unittest.TestCase):
         self.assertEqual(self.calculator.sum_service(
             -40.0, -2.0), "-40.0 + -2.0 = -42\n")
 
+    def test_sum_service_invalid_input_error(self):
+        self.assertEqual(self.calculator.sum_service(
+            "tjt.234", "123.ke9?"), "")
+
     def test_sub_service_integer(self):
         self.assertEqual(self.calculator.sub_service(
             self.x, self.z), "2 - 4 = -2\n")
@@ -33,6 +37,10 @@ class TestCalculatorService(unittest.TestCase):
         self.assertEqual(self.calculator.sub_service(
             1.0, 2.0), "1.0 - 2.0 = -1\n")
 
+    def test_sub_service_invalid_input_error(self):
+        self.assertEqual(self.calculator.sub_service(
+            "errorsana", "123.yep"), "")
+
     def test_mul_service_integer(self):
         self.assertEqual(self.calculator.mul_service(
             self.z, self.z), "4 * 4 = 16\n")
@@ -44,6 +52,9 @@ class TestCalculatorService(unittest.TestCase):
     def test_mul_service_last(self):
         self.assertEqual(self.calculator.mul_service(
             -3.0, self.y), "-3.0 * 3 = -9\n")
+
+    def test_mul_service_invalid_input_error(self):
+        self.assertEqual(self.calculator.mul_service("jih.959", "ierj"), "")
 
     def test_div_service_integer(self):
         self.assertEqual(self.calculator.div_service(
@@ -69,9 +80,12 @@ class TestCalculatorService(unittest.TestCase):
         self.assertEqual(self.calculator.div_service(
             0, self.x), "0 / 2 = 0\n")
 
+    def test_div_service_invalid_input_error(self):
+        self.assertEqual(self.calculator.div_service("123.yep", 313), "")
+
     def test_sqrt_service_negative_input_not_allowed(self):
         self.assertEqual(self.calculator.sqrt_service(-1),
-                         "Error: Input number -1 is not a positive number\n")
+                         "Error: Input -1 is not a positive number\n")
 
     def test_sqrt_service_integer(self):
         self.assertEqual(self.calculator.sqrt_service(
@@ -79,3 +93,15 @@ class TestCalculatorService(unittest.TestCase):
 
     def test_sqrt_service_float(self):
         self.assertEqual(self.calculator.sqrt_service(0.25), f"√0.25 = ±0.5\n")
+
+    def test_sqrt_service_invalid_input_error(self):
+        self.assertEqual(self.calculator.sqrt_service("123.yep"), "")
+
+    def test_string_to_number_input_error(self):
+        self.assertEqual(self.calculator.string_to_number("456.kek"), None)
+
+    def test_string_to_number_input_success_integer(self):
+        self.assertEqual(self.calculator.string_to_number("123456"), 123456)
+
+    def test_string_to_number_input_success_float(self):
+        self.assertEqual(self.calculator.string_to_number("123.456"), 123.456)
