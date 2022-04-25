@@ -30,7 +30,7 @@ Class CalculationService forms and responds for application logic, which represe
          calculations
      : add_calculation(content)
      : print_calculations()
-     : 
+     : count_calculations()
      }
 ```
 
