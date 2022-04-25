@@ -11,7 +11,7 @@ Sovellus toimii laskimena, jolla on mahdollista suorittaa laskutoimenpiteitä ja
   - Erotus "tehty"
   - Jako "tehty"
   - Kerto "tehty"
-  - Neliöjuuret
+  - Neliöjuuret "tehty"
   - Luku toiseen potenssiin
   - Käänteisluku
 - Muistitoiminnot
