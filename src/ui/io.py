@@ -22,7 +22,7 @@ class IO:
             7: " Enter sqrt to calculate square root of a positive number",
             8: " Enter ? to get a count of calculations performed",
             9: " Enter x to stop",
-            10: "_____________________________________________________________\n",
+            10:"_____________________________________________________________\n",
         }
 
     def start(self):
@@ -30,6 +30,7 @@ class IO:
         while True:
             command = input("Enter command: ")
             if command == "x":
+                print(f"Exiting Calculator..\n")
                 break
             if command == "?":
                 print("Calculations:", self._calculator.count(), "\n")
