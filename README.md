@@ -40,4 +40,4 @@ poetry run invoke lint
 - [Changelog](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
 - [Vaatimusmäärittely](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Working Hours](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
-- [Latest Release](https://github.com/n0spoon/ot-harjoitustyo/releases/tag/viikko5)
+- [Latest Release](https://github.com/n0spoon/ot-harjoitustyo/releases/latest)
