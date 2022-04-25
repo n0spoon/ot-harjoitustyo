@@ -68,3 +68,14 @@ class TestCalculatorService(unittest.TestCase):
     def test_div_service_amounts_to_zero(self):
         self.assertEqual(self.calculator.div_service(
             0, self.x), "0 / 2 = 0\n")
+
+    def test_sqrt_service_negative_input_not_allowed(self):
+        self.assertEqual(self.calculator.sqrt_service(-1),
+                         "Error: Input number -1 is not a positive number\n")
+
+    def test_sqrt_service_integer(self):
+        self.assertEqual(self.calculator.sqrt_service(
+            self.z), f"√{self.z} = ±{self.x}\n")
+
+    def test_sqrt_service_float(self):
+        self.assertEqual(self.calculator.sqrt_service(0.25), f"√0.25 = ±0.5\n")

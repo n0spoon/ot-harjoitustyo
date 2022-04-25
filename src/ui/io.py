@@ -10,17 +10,19 @@ class IO:
             "*": self._calculator.mul_service,
             "/": self._calculator.div_service,
             "?": self._calculator.count(),
+            "sqrt": self._calculator.sqrt_service,
         }
         self._guide = {
-            1: "__________________________________________________",
-            2: "Commands for Calculator:",
-            3: "Enter + to sum two numbers",
-            4: "Enter - to subtract latter number from the first",
-            5: "Enter * to multiply two numbers",
-            6: "Enter / to divide first number with the latter",
-            7: "Enter ? to get a count of calculations performed",
-            8: "Enter x to stop",
-            9: "__________________________________________________\n",
+            1: "_____________________________________________________________\n",
+            2: " Commands for Calculator:",
+            3: " Enter + to sum two numbers",
+            4: " Enter - to subtract latter number from the first",
+            5: " Enter * to multiply two numbers",
+            6: " Enter / to divide first number with the latter",
+            7: " Enter sqrt to calculate square root of a positive number",
+            8: " Enter ? to get a count of calculations performed",
+            9: " Enter x to stop",
+            10: "_____________________________________________________________\n",
         }
 
     def start(self):
@@ -33,9 +35,15 @@ class IO:
                 print("Calculations:", self._calculator.count(), "\n")
                 continue
             if command not in self._commands:
-                print("Error: False Command")
+                print(f"Error: False Command {command}")
                 self.print_guide()
                 continue
+            if command == "sqrt":
+                var_a = input("Enter a positive number: ")
+                calculation = self._commands[command]
+                if callable(calculation):
+                    print(calculation(var_a))
+                    continue
             var_a = input("Enter first number: ")
             var_b = input("Enter second number: ")
             calculation = self._commands[command]

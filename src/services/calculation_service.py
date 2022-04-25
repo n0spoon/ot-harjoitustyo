@@ -1,3 +1,4 @@
+import math
 from repositories.calculation_repository import CalculationRepository
 
 
@@ -15,11 +16,7 @@ class CalculationService:
         var_a = self.string_to_number(var_a)
         var_b = self.string_to_number(var_b)
         result = (var_a+var_b)
-        pieces = str(result).split(".")
-        if len(pieces[-1]) == 1:
-            last = int(pieces[-1])
-            if last == 0:
-                result = int(result)
+        result = self.clean_result(result)
         self.add(result)
         return f"{var_a} + {var_b} = {result}\n"
 
@@ -27,11 +24,7 @@ class CalculationService:
         var_a = self.string_to_number(var_a)
         var_b = self.string_to_number(var_b)
         result = (var_a-var_b)
-        pieces = str(result).split(".")
-        if len(pieces[-1]) == 1:
-            last = int(pieces[-1])
-            if last == 0:
-                result = int(result)
+        result = self.clean_result(result)
         self.add(result)
         return f"{var_a} - {var_b} = {result}\n"
 
@@ -39,11 +32,7 @@ class CalculationService:
         var_a = self.string_to_number(var_a)
         var_b = self.string_to_number(var_b)
         result = (var_a*var_b)
-        pieces = str(result).split(("."))
-        if len(pieces[-1]) == 1:
-            last = int(pieces[-1])
-            if last == 0:
-                result = int(result)
+        result = self.clean_result(result)
         self.add(result)
         return f"{var_a} * {var_b} = {result}\n"
 
@@ -53,13 +42,26 @@ class CalculationService:
         if var_b == 0:
             return "Division by Zero isn't allowed\n"
         result = (var_a/var_b)
-        pieces = str(result).split(("."))
+        result = self.clean_result(result)
+        self.add(result)
+        return f"{var_a} / {var_b} = {result}\n"
+
+    def sqrt_service(self, var_a):
+        var_a = self.string_to_number(var_a)
+        if var_a < 0:
+            return f"Error: Input number {var_a} is not a positive number\n"
+        result = math.sqrt(var_a)
+        result = f"±{self.clean_result(result)}"
+        self.add(result)
+        return f"√{var_a} = {result}\n"
+
+    def clean_result(self, result):
+        pieces = str(result).split(".")
         if len(pieces[-1]) == 1:
             last = int(pieces[-1])
             if last == 0:
                 result = int(result)
-        self.add(result)
-        return f"{var_a} / {var_b} = {result}\n"
+        return result
 
     def count(self):
         return self._calcdata.count_calculations()
