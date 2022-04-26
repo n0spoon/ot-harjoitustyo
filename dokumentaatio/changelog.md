@@ -15,7 +15,6 @@
 ## Viikko 5
 - Ensimmäinen release
 - Lisätty toiminnallisuus positiivisten lukujen neliöjuurien laskemiseen
-- Kehitetty toiminnallisuus CalculationService luokkaan, joka estää ohjelman kaatumisen virhetilanteessa esim. laskutoimitukseen syötettäessä jokin ei-numero, kuten "abc.123", ja käsittelee tilanteen
+- Lisätty toiminnallisuus CalculationService luokkaan, joka estää ohjelman kaatumisen virhetilanteessa esim. laskutoimitukseen syötettäessä jokin ei-numero, kuten "abc.123", ja käsittelee tilanteen
 - Vähennetty koodin toistoa luomalla metodi clean_result(result), joka tarkistaa onko luku desimaaliluku jonka desimaaliosan pituus on 1 ja arvo 0 esim 1.0, 2.0 ja muokkaa luvut muotoon 1, 2 ilman desimaaliosaa
-
-
+- Lisätty toiminnallisuus potenssilaskuihin ja testit toiminnallisuudelle
