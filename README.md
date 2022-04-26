@@ -15,7 +15,6 @@ poetry run invoke start
 ```
 
 **Remember to use a dot . for decimal part representation e.g. 2.5, 0.75, 3.1415**
-
 **Do not input decimals as fractions e.g. 1/2 or 3/8, these won't be processed**
 
 ## Command line functions
