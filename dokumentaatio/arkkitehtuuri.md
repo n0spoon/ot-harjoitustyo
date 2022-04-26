@@ -39,14 +39,14 @@ Class CalculationService forms and responds for application logic, which represe
 
 ## Main functionalities
 
-Sequence diagram expressing functionality of the program
+Sequence diagram illustrating functionality of the program, when calculating 2 to the power of 12.
 
 ```mermaid
  sequenceDiagram
+     actor User
      main->>IO: calculator.start()
      IO->>IO: start()
      IO->>IO: print_guide()
-     actor User 
      IO->>User: input("Enter command: ")
      User->>IO: "exp"
      IO->>IO: command = exp
