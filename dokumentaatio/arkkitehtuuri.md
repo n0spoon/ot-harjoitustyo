@@ -21,6 +21,7 @@ Class CalculationService forms and responds for application logic, which represe
      : mul_service(var_a, var_b)
      : div_service(var_a, var_b)
      : sqrt_service(var_a)
+     : exp_service(var_a, var_b)
      : clean_result(result)
      : count()
      : return_calculations()
