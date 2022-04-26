@@ -36,3 +36,36 @@ Class CalculationService forms and responds for application logic, which represe
 ```
 
 ![Package Structure and Classes](./photos/architecture-package-and-classes.png)
+
+## Main functionalities
+
+Sequence diagram expressing functionality of the program
+
+```mermaid
+ sequenceDiagram
+     main->>IO: calculator.start()
+     IO->>IO: start()
+     IO->>IO: print_guide()
+     actor User 
+     IO->>User: input("Enter command: ")
+     User->>IO: "exp"
+     IO->>IO: command = exp
+     IO->>User: input("Enter first number: ")
+     User->>IO: "2"
+     IO->>IO: var_a = 2
+     IO->>User: input("Enter second number: ")
+     User->>IO: "12"
+     IO->>IO: var_b = 12
+     IO->>IO: callable(calculation)
+     IO->>IO: True
+     IO->>CalculationService: exp_service(2, 12)
+     CalculationService->>CalculationService: result = 4096
+     CalculationService->>CalculationService: add_result(result)
+     CalculationService->>CalculationRepository: add_calculation(content) 
+     CalculationService->>IO: "2^12 = 4096"
+     IO->>IO: print(2^12 = 4096)
+     IO->>User: input("Enter command: ")
+     User->>IO: "x"
+     IO->>IO: command = "x"
+     IO->>IO: print("Exiting Calculator..\n")
+```
