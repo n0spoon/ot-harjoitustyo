@@ -12,10 +12,10 @@ Sovellus toimii laskimena, jolla on mahdollista suorittaa laskutoimenpiteitä ja
   - Jako "tehty"
   - Kerto "tehty"
   - Neliöjuuret "tehty"
-  - Luku toiseen potenssiin
+  - Luku toiseen potenssiin "tehty"
   - Käänteisluku
 - Muistitoiminnot
-  - Tuloksen voi lisätä muistiin
+  - Tuloksen voi lisätä muistiin "tehty"
   - Tuloksen voi hakea muistista
   - Tuloksen voi poistaa muistista
 
@@ -24,7 +24,7 @@ Sovelluksen perusmallin jälkeen laskinta mahdollisesti jatkokehitetään seuraa
 - Kehitetään toiminnallisuus funktiolaskimeen tai graafiseen
 - Lisää laskutoimintoja
   - Kaksikantaiset logaritmit
-  - Luku korkeampaan potenssiin kuin toiseen
+  - Luku korkeampaan potenssiin kuin toiseen "tehty"
   - Kuutiojuuret
   - Kertoma
   - Piin ja Neperin luvun likiarvot
