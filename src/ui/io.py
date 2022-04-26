@@ -11,18 +11,20 @@ class IO:
             "/": self._calculator.div_service,
             "?": self._calculator.count(),
             "sqrt": self._calculator.sqrt_service,
+            "exp": self._calculator.exp_service,
         }
         self._guide = {
-            1: "_____________________________________________________________\n",
+            1: "__________________________________________________________________\n",
             2: " Commands for Calculator:",
             3: " Enter + to sum two numbers",
             4: " Enter - to subtract latter number from the first",
             5: " Enter * to multiply two numbers",
             6: " Enter / to divide first number with the latter",
             7: " Enter sqrt to calculate square root of a positive number",
-            8: " Enter ? to get a count of calculations performed",
-            9: " Enter x to stop",
-            10:"_____________________________________________________________\n",
+            8: " Enter exp to calculate value of first number raised into second",
+            9: " Enter ? to get a count of calculations performed",
+            10: " Enter x to stop",
+            11: "__________________________________________________________________\n",
         }
 
     def start(self):

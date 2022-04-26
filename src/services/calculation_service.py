@@ -52,7 +52,7 @@ class CalculationService:
             var_x = self.string_to_number(var_a)
             var_y = self.string_to_number(var_b)
             if var_y == 0:
-                return "Division by Zero isn't allowed\n"
+                return "Error: Division by Zero isn't allowed\n"
             result = (var_x/var_y)
             result = self.clean_result(result)
             self.add_result(result)
@@ -69,6 +69,20 @@ class CalculationService:
             result = f"±{self.clean_result(result)}"
             self.add_result(result)
             return f"√{var_x} = {result}\n"
+        except TypeError:
+            return ""
+
+    def exp_service(self, var_a, var_b):
+        try:
+            var_x = self.string_to_number(var_a)
+            var_y = self.string_to_number(var_b)
+            var_x = self.clean_result(var_x)
+            if (var_x == 0) and (var_y < 0):
+                return "Error: Division by Zero isn't allowed\n"
+            result = var_x**var_y
+            result = self.clean_result(result)
+            self.add_result(result)
+            return f"{var_x}^{var_y} = {result}\n"
         except TypeError:
             return ""
 
