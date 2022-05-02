@@ -2,7 +2,7 @@ from repositories.calculation_repository import CalculationRepository
 
 
 class CalculationService:
-    """Luokka, joka muuntaa syötteen numeroksi ja laskee käyttäjän määrittämän laskutoimituksen.
+    """Luokka, joka muuntaa syötteen luvuksi ja laskee käyttäjän määrittämän laskutoimituksen.
 
     Attributes:
         _calcdata: CalculationRepository instanssi, johon talletetaan laskutoimituksien tulokset.
@@ -18,10 +18,10 @@ class CalculationService:
         self._calcdata = CalculationRepository()
 
     def string_to_number(self, var_s):
-        """Muuntaa merkkijonon numeroksi mikäli se on joko liuku- tai kokonaisluku.
+        """Muuntaa merkkijonon luvuksi mikäli se on joko liuku- tai kokonaisluku.
 
         Args:
-            var_s (str): Merkkijono, joka kuvaa numeroa.
+            var_s (str): Merkkijono, joka yritetään muuttaa luvuksi.
 
         Returns:
             Tulostaa virheviestin, jos merkkijono ei ole kokonaisluku tai liukuluku.
@@ -45,7 +45,7 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole numero.
+            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
             Muuten tulostaa summalaskun.
         """
 
@@ -67,7 +67,7 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole numero.
+            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
             Muuten tulostaa erotuslaskun.
         """
         try:
@@ -88,7 +88,7 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole numero.
+            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
             Muuten tulostaa kertoslaskun.
         """
 
@@ -110,7 +110,7 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole numero.
+            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
             Tulostaa virheviestin, jos jakajan arvo on nolla.
             Muuten tulostaa jakolaskun.
         """
@@ -134,7 +134,7 @@ class CalculationService:
             var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos muuttuja var_a ei ole numero.
+            None olio, jos muuttuja var_a ei ole luku.
             Tulostaa virheviestin, jos luku ei ole positiivinen.
             Muuten tulostaa luvun neliöjuuren.
         """
@@ -158,7 +158,7 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku, eksponentti.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole numero.
+            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
             Tulostaa virheviestin, jos kantaluku on nolla ja eksponentti negatiivinen.
             Muuten tulostaa eksponenttilaskun.
         """
@@ -179,14 +179,14 @@ class CalculationService:
             return ""
 
     def clean_result(self, result):
-        """Siistii annetun numeron.
+        """Siistii annetun luvun.
 
         Args:
             result (int or float): Laskutoimituksen tulos.
 
         Returns:
-            int: Jos numero on liukuluku, jonka desimaaliosa on nolla.
-            float: Jos numero on liukuluku, jonka desimaaliosa ei ole nolla.
+            int: Jos luku on kokonaisluku tai liukuluku, jonka desimaaliosa on nolla.
+            float: Jos luku on liukuluku, jonka desimaaliosa ei ole nolla.
         """
 
         pieces = str(result).split(".")
@@ -214,7 +214,7 @@ class CalculationService:
         return self._calcdata.print_calculations()
 
     def add_result(self, result):
-        """Tallentaa laskutoimituksen _calcdata-olioon.
+        """Tallentaa tuloksen _calcdata-olioon.
 
         Args:
             result (int or float): Laskutoimituksen tulos.
