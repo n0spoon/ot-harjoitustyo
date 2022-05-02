@@ -2,7 +2,7 @@ from repositories.calculation_repository import CalculationRepository
 
 
 class CalculationService:
-    """Luokka, joka muuntaa käyttäjän syötteen numeroksi ja laskee käyttäjän määrittämän laskutoimituksen.
+    """Luokka, joka muuntaa syötteen numeroksi ja laskee käyttäjän määrittämän laskutoimituksen.
 
     Attributes:
         _calcdata: CalculationRepository instanssi, johon talletetaan laskutoimituksien tulokset.
@@ -24,7 +24,7 @@ class CalculationService:
             var_s (str): Merkkijono, joka kuvaa numeroa.
 
         Returns:
-            Tulostaa virheviestin, mikäli merkkijono ei ole kokonaisluku eikä liukuluku(jossa on käytetty pistettä erottamaan desimaaliosa).
+            Tulostaa virheviestin, jos merkkijono ei ole kokonaisluku tai liukuluku.
             int: Jos käyttäjän syöte on kokonaisluku.
             float: Jos käyttäjän syöte on liukuluku.
         """
