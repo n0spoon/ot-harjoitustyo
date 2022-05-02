@@ -122,6 +122,10 @@ class TestCalculatorService(unittest.TestCase):
         self.assertEqual(self.calculator.exp_service(
             0.0, -12), "Error: Division by Zero isn't allowed\n")
 
+    def test_exp_service_as_sqrt(self):
+        self.assertEqual(self.calculator.exp_service(
+            2, 0.5), "2^0.5 = ±1.4142135623730951\n")
+
     def test_exp_service_invalid_input(self):
         self.assertEqual(self.calculator.exp_service(
             0.69, "nopers"), "")
