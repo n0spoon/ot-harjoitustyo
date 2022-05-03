@@ -24,7 +24,7 @@ class CalculationService:
             var_s (str): Merkkijono, joka yritetään muuttaa luvuksi.
 
         Returns:
-            Tulostaa virheviestin, jos merkkijono ei ole kokonaisluku tai liukuluku.
+            str: Virheviesti, jos merkkijono ei ole kokonaisluku tai liukuluku.
             int: Jos käyttäjän syöte on kokonaisluku.
             float: Jos käyttäjän syöte on liukuluku.
         """
@@ -45,8 +45,8 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
-            Muuten tulostaa summalaskun.
+            None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
+            str: Laskutoimitus ja summalaskun tulos.
         """
 
         try:
@@ -67,8 +67,8 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
-            Muuten tulostaa erotuslaskun.
+            None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
+            str: Laskutoimitus ja erotuslaskun tulos.
         """
 
         try:
@@ -89,8 +89,8 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
-            Muuten tulostaa kertoslaskun.
+            None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
+            str: Laskutoimitus ja kertolaskun tulos.
         """
 
         try:
@@ -111,9 +111,9 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
-            Tulostaa virheviestin, jos jakajan arvo on nolla.
-            Muuten tulostaa jakolaskun.
+            None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
+            str: Virheviesti, jos jakajan arvo on nolla.
+            str: Laskutoimitus ja jakolaskun tulos.
         """
 
         try:
@@ -135,9 +135,9 @@ class CalculationService:
             var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos muuttuja var_a ei ole luku.
-            Tulostaa virheviestin, jos luku ei ole positiivinen.
-            Muuten tulostaa luvun neliöjuuren.
+            None: Jos muuttuja var_a ei ole luku.
+            str: Virheviesti, jos luku ei ole positiivinen.
+            str: Laskutoimitus ja luvun neliöjuuren tulos.
         """
 
         try:
@@ -159,9 +159,9 @@ class CalculationService:
             var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku, eksponentti.
 
         Returns:
-            None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
-            Tulostaa virheviestin, jos kantaluku on nolla ja eksponentti negatiivinen.
-            Muuten tulostaa eksponenttilaskun.
+            None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
+            str: Virheviesti, jos kantaluku on nolla ja eksponentti negatiivinen.
+            str: Laskutoimitus ja eksponenttilaskun tulos.
         """
 
         try:
@@ -186,9 +186,9 @@ class CalculationService:
             var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
 
         Returns:
-            None olio, jos muuttuja var_a ei ole luku.
-            Tulostaa virheviestin, jos muuttujan var_a arvo on nolla.
-            Muuten tulostaa luvun käänteisluvun.
+            None: Jos muuttuja var_a ei ole luku.
+            str: Virheviesti, jos muuttujan var_a arvo on nolla.
+            str: Laskutoimitus ja luvun käänteisluku.
         """
 
         try:
@@ -255,3 +255,30 @@ class CalculationService:
         """
 
         return self._calcdata.get_last()
+
+    def clear_last_calculation(self):
+        """Poistaa viimeisimmän laskutoimituksen tuloksen muistista.
+
+        Returns:
+            str: Ilmoittaa poistetun tuloksen, jos muisti ei ole tyhjä.
+            str: Ilmoittaa virheviestin, jos muisti on tyhjä.
+        """
+
+        if self._calcdata.count_calculations() > 0:
+            calculation_to_be_removed = self.get_last_result()
+            self._calcdata.clear_last()
+            return f"Cleared last result from memory: {calculation_to_be_removed}.\n"
+        return "Error: Memory is empty.\n"
+
+    def clear_all_calculations(self):
+        """Poistaa kaikkien laskutoimitusten tulokset muistista.
+
+        Returns:
+            str: Ilmoittaa muistin tyhjentyneen, jos muisti ei ole tyhjä.
+            str: Ilmoittaa virheviestin, jos muisti on tyhjä.
+        """
+
+        if self._calcdata.count_calculations() > 0:
+            self._calcdata.clear_all()
+            return "Cleared everything from memory.\n"
+        return "Error: Memory is empty.\n"

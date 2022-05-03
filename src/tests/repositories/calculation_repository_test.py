@@ -67,6 +67,27 @@ class TestCalculationRepository(unittest.TestCase):
         var_a = self.calculator.get_last_result()
         self.assertEqual(var_a, "±2")
 
+    def test_calculations_clear_last_from_empty_memory(self):
+        self.assertEqual(self.calculator.clear_last_calculation(),
+                         "Error: Memory is empty.\n")
+
+    def test_calculations_clear_last_two_in_memory(self):
+        self.calculator.sqrt_service(2)
+        self.calculator.exp_service(4, 5)
+        self.assertEqual(self.calculator.clear_last_calculation(),
+                         "Cleared last result from memory: 1024.\n")
+        self.assertEqual(self.calculator.count(), 1)
+
+    def test_calculations_clear_all_from_empty_memory(self):
+        self.assertEqual(self.calculator.clear_all_calculations(),
+                         "Error: Memory is empty.\n")
+
+    def test_calculations_clear_all_two_in_memory(self):
+        self.calculator.inv_service(2)
+        self.calculator.exp_service(self.calculator.get_last_result(), 2)
+        self.assertEqual(self.calculator.clear_all_calculations(),
+                         "Cleared everything from memory.\n")
+
 #    def test_calculations_get_last_result_none(self):
 #        self.assertEqual(self.calculator.sum_service(
 #            self.calculator.get_last_result(), 1), "Error: Memory is empty\")

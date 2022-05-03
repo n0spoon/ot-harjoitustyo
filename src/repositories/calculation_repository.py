@@ -1,6 +1,5 @@
 class CalculationRepository:
-    """Luokka, joka säilöö laskutoimitukset.
-    """
+    """Luokka, joka säilöö laskutoimitukset."""
 
     def __init__(self):
         """Luokan konstruktori, joka luo uuden taulukon.
@@ -11,14 +10,14 @@ class CalculationRepository:
 
         self._calculations = []
 
-    def add_calculation(self, content):
-        """Lisää laskutoimituksen taulukkoon.
+    def add_calculation(self, result):
+        """Lisää laskutoimituksen tuloksen muistiin.
 
         Args:
-            content (int or float): Laskutoimitus.
+            result (int, float or str): Laskutoimituksen tulos.
         """
 
-        self._calculations.append(content)
+        self._calculations.append(result)
 
     def print_calculations(self):
         """Tulostaa listan laskutoimituksista.
@@ -49,3 +48,15 @@ class CalculationRepository:
             return self._calculations[-1]
         except IndexError:
             return "Memory is empty\n"
+
+    def clear_last(self):
+        """Poistaa viimeisimmän laskutoimituksen, jos muisti ei ole tyhjä."""
+
+        if self.count_calculations() > 0:
+            self._calculations.pop()
+
+    def clear_all(self):
+        """Poistaa kaikki laskutoimitukset muistista, jos muisti ei ole tyhjä."""
+
+        if self.count_calculations() > 0:
+            self._calculations.clear()
