@@ -37,7 +37,7 @@ Class _CalculationService_ forms and responds for application logic, which repre
 
 ![Package Structure and Classes](./photos/architecture-package-and-classes.png)
 
-_CalculationService_ can access and manage calculations in memory through _CalculationRepository_
+_CalculationService_ can access and manage calculations in memory through _CalculationRepository_.
 
 ## Main functionalities
 
