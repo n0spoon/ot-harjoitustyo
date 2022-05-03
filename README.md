@@ -49,3 +49,4 @@ poetry run invoke lint
 - [Working Hours](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 - [Latest Release](https://github.com/n0spoon/ot-harjoitustyo/releases/latest)
 - [First Release](https://github.com/n0spoon/ot-harjoitustyo/releases/tag/viikko5)
+- [User Manual](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
