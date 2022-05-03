@@ -32,5 +32,6 @@ Program opens a TUI (text-based user interface) that shows available commands.
 Type command followed by an enter key.  Program can show 17 decimal places of digits.
 ![Basic Usage](./photos/basic-calculations.png)
 
+
 A square root will result in a plusminus answer, that will count as one calculation.  When used with 'last' command, calculator will however calculate both negative and positive outcomes which each will count as a calculation.
 ![Plusminus Calculations](./photos/plusminus-calculations.png)
