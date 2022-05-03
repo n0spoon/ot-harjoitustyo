@@ -13,10 +13,10 @@ Sovellus toimii laskimena, jolla on mahdollista suorittaa laskutoimenpiteitä ja
   - Kerto "tehty"
   - Neliöjuuret "tehty"
   - Luku toiseen potenssiin "tehty"
-  - Käänteisluku
+  - Käänteisluku "tehty"
 - Muistitoiminnot
   - Tuloksen voi lisätä muistiin "tehty"
-  - Tuloksen voi hakea muistista
+  - Tuloksen voi hakea muistista "tehty"
   - Tuloksen voi poistaa muistista
 
 ## Jatkokehitykseen
