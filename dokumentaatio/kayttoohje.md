@@ -24,7 +24,7 @@ poetry run invoke start
 
 ## Start
 
-Program opens a UI (text-based user interface) that shows available commands.
+Program opens a TUI (text-based user interface) that shows available commands.
 ![Startup View](./photos/startup.png)
 
 ## Usage
