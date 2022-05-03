@@ -103,7 +103,7 @@ class CalculationService:
             return ""
 
     def div_service(self, var_a, var_b):
-        """Laskee kahden luvun jakolaskun.
+        """Laskee jakolaskun, jossa var_a on jaettava ja var_b on jakaja.
 
         Args:
             var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
@@ -179,10 +179,10 @@ class CalculationService:
             return ""
 
     def clean_result(self, result):
-        """Siistii annetun luvun.
+        """Siistii annetun luvun kokonaisluvuksi mikäli mahdollista.
 
         Args:
-            result (int or float): Laskutoimituksen tulos.
+            result (int or float): Siistittävä luku.
 
         Returns:
             int: Jos luku on kokonaisluku tai liukuluku, jonka desimaaliosa on nolla.
