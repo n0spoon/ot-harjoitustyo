@@ -17,7 +17,7 @@ Sovellus toimii laskimena, jolla on mahdollista suorittaa laskutoimenpiteitä ja
 - Muistitoiminnot
   - Tuloksen voi lisätä muistiin "tehty"
   - Tuloksen voi hakea muistista "tehty"
-  - Tuloksen voi poistaa muistista
+  - Tuloksen voi poistaa muistista "tehty"
 
 ## Jatkokehitykseen
 Sovelluksen perusmallin jälkeen laskinta mahdollisesti jatkokehitetään seuraavasti:
