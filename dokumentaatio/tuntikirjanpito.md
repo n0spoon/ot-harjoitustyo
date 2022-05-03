@@ -11,4 +11,4 @@
 | 26.04 | 4  | Harjoitustyöt 6-8 tehty, lisätty toiminnallisuus potenssilaskujen laskemiseen ja testit toiminnallisuudelle |
 | 02.05 | 2  | Docstring dokumentaatio |
 | 03.05 | 6  | Harjoitustyöt 1-7 tehty, lisätty loput docstring dokumentaatiosta ja toiminnallisuudet käänteisluvun laskemiseen, viimeisen tuloksen käyttämiseen laskutoimituksessa, viimeisen tuloksen poistamiseen muistista, kaikkien tuloksien poistamiseen muistista ja testit näille toiminnallisuuksille | 
-| yht.  | 43 | |
+| yht.  | 43 |  |
