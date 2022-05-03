@@ -70,6 +70,7 @@ class CalculationService:
             None olio, jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
             Muuten tulostaa erotuslaskun.
         """
+
         try:
             var_x = self.string_to_number(var_a)
             var_y = self.string_to_number(var_b)
@@ -178,6 +179,29 @@ class CalculationService:
         except TypeError:
             return ""
 
+    def inv_service(self, var_a):
+        """Laskee luvun var_a käänteisluvun.
+
+        Args:
+            var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
+
+        Returns:
+            None olio, jos muuttuja var_a ei ole luku.
+            Tulostaa virheviestin, jos muuttujan var_a arvo on nolla.
+            Muuten tulostaa luvun käänteisluvun.
+        """
+
+        try:
+            var_x = self.string_to_number(var_a)
+            if var_x == 0:
+                return "Error: Division by Zero isn't allowed\n"
+            result = 1/var_x
+            result = self.clean_result(result)
+            self.add_result(result)
+            return f"1 / {var_x} = {result}\n"
+        except TypeError:
+            return ""
+
     def clean_result(self, result):
         """Siistii annetun luvun kokonaisluvuksi mikäli mahdollista.
 
@@ -202,6 +226,7 @@ class CalculationService:
         Returns:
             int: Laskutoimitusten määrä.
         """
+
         return self._calcdata.count_calculations()
 
     def return_calculations(self):
@@ -221,3 +246,12 @@ class CalculationService:
         """
 
         self._calcdata.add_calculation(result)
+
+    def get_last_result(self):
+        """Hakee ja tulostaa viimeisimmän laskutoimituksen tuloksen.
+
+        Returns:
+            int, float or str: Viimeisimmän laskutoimituksen tulos.
+        """
+
+        return self._calcdata.get_last()

@@ -37,3 +37,15 @@ class CalculationRepository:
         """
 
         return len(self._calculations)
+
+    def get_last(self):
+        """Palauttaa taulukon viimeisen alkion.
+
+        Returns:
+            int, float or str: Taulukon viimeinen alkio.
+        """
+
+        try:
+            return self._calculations[-1]
+        except IndexError:
+            return "Memory is empty\n"

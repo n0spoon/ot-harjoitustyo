@@ -56,3 +56,18 @@ class TestCalculationRepository(unittest.TestCase):
     def test_calculations_after_error_sqrt(self):
         self.calculator.sqrt_service("yep.123")
         self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_get_last_result_sqrt(self):
+        self.calculator.mul_service(6, 6)
+        self.assertEqual(self.calculator.sqrt_service(
+            self.calculator.get_last_result()), "√36 = ±6\n")
+
+    def test_calculations_get_last_result_plusminus(self):
+        self.calculator.sqrt_service(4)
+        var_a = self.calculator.get_last_result()
+        self.assertEqual(var_a, "±2")
+
+#    def test_calculations_get_last_result_none(self):
+#        self.assertEqual(self.calculator.sum_service(
+#            self.calculator.get_last_result(), 1), "Error: Memory is empty\")
+#        self.assertEqual(self.calculator.count(), 0)

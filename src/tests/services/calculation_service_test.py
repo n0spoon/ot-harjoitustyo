@@ -129,3 +129,23 @@ class TestCalculatorService(unittest.TestCase):
     def test_exp_service_invalid_input(self):
         self.assertEqual(self.calculator.exp_service(
             0.69, "nopers"), "")
+
+    def test_inv_service_integer(self):
+        self.assertEqual(self.calculator.inv_service(
+            1), "1 / 1 = 1\n")
+
+    def test_inv_service_float(self):
+        self.assertEqual(self.calculator.inv_service(
+            100), "1 / 100 = 0.01\n")
+
+    def test_inv_service_negative(self):
+        self.assertEqual(self.calculator.inv_service(
+            -2), "1 / -2 = -0.5\n")
+
+    def test_inv_service_division_by_zero(self):
+        self.assertEqual(self.calculator.inv_service(
+            0), "Error: Division by Zero isn't allowed\n")
+
+    def test_inv_service_invalid_input(self):
+        self.assertEqual(self.calculator.inv_service(
+            "failings"), "")
