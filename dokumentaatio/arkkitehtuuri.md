@@ -8,7 +8,7 @@ Package _ui_ contains user interface, _services_ contains application logic and 
 
 ## Application logic
 
-Class CalculationService forms and responds for application logic, which represents different calculations and their storage through CalculationRepository.
+Class _CalculationService_ forms and responds for application logic, which represents different calculations and their storage through _CalculationRepository_.
 
 ```mermaid
  classDiagram
@@ -37,9 +37,11 @@ Class CalculationService forms and responds for application logic, which represe
 
 ![Package Structure and Classes](./photos/architecture-package-and-classes.png)
 
+_CalculationService_ can access and manage calculations in memory through _CalculationRepository_
+
 ## Main functionalities
 
-Sequence diagram illustrating functionality of the program, when calculating 2 to the power of 12.
+Sequence diagram illustrating functionality of the application calculating 2 to the power of 12.
 
 ```mermaid
  sequenceDiagram
