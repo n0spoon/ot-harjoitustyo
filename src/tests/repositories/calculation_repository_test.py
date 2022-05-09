@@ -1,16 +1,21 @@
-from services.calculation_service import CalculationService
 import unittest
+from services.calculation_service import CalculationService
 
 
 class TestCalculationRepository(unittest.TestCase):
     def setUp(self):
         self.calculator = CalculationService()
+        self.calculator.clear_all_calculations()
 
     def test_calculations_at_start(self):
         self.assertEqual(self.calculator.count(), 0)
 
+    def test_no_calculations_at_start(self):
+        self.assertEqual(self.calculator.get_last_result(),
+                         "Memory is empty.\n")
+
     def test_none_calculations_at_start(self):
-        self.assertIsNone(self.calculator.return_calculations())
+        self.assertEqual(self.calculator.return_calculations(), [])
 
     def test_calculations_after_two_sum(self):
         self.calculator.sum_service("2", "3")
@@ -88,7 +93,5 @@ class TestCalculationRepository(unittest.TestCase):
         self.assertEqual(self.calculator.clear_all_calculations(),
                          "Cleared everything from memory.\n")
 
-#    def test_calculations_get_last_result_none(self):
-#        self.assertEqual(self.calculator.sum_service(
-#            self.calculator.get_last_result(), 1), "Error: Memory is empty\")
-#        self.assertEqual(self.calculator.count(), 0)
+    def test_clear_all_from_memory(self):
+        self.assertEqual(self.calculator.clear_all_calculations(), "Error: Memory is empty.\n")

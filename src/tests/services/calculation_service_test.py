@@ -8,6 +8,7 @@ class TestCalculatorService(unittest.TestCase):
         self.y = 3
         self.z = 4
         self.calculator = CalculationService()
+        self.calculator.clear_all_calculations()
 
     def test_string_to_number_input_error(self):
         self.assertEqual(self.calculator.string_to_number("456.kek"), None)

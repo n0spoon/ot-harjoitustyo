@@ -12,6 +12,11 @@ Application can perform calculations determined by user input.
 poetry install
 ```
 
+- Initialize database
+```bash
+poetry run invoke init
+```
+
 - Start application
 ```bash
 poetry run invoke start

@@ -56,6 +56,9 @@ class IO:
             if command == "?":
                 print("Calculations:", self._calculator.count(), "\n")
                 continue
+            if command == "print":
+                print(self._calculator.return_calculations())
+                continue
             if command not in self._commands:
                 print(f"Error: False Command {command}")
                 self.print_guide()
@@ -73,7 +76,7 @@ class IO:
                     if var_a == "last":
                         var_a = self._calculator.get_last_result()
                         if isinstance(var_a, str):
-                            if (var_a[0] == "±"):
+                            if var_a[0] == "±":
                                 var_a = var_a.strip("±")
                                 print(calculation("-" + var_a))
                                 print(calculation(var_a))

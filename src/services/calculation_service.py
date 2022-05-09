@@ -221,7 +221,7 @@ class CalculationService:
         return result
 
     def count(self):
-        """Laskee laskutoimitusten määrän.
+        """Palauttaa laskutoimitusten määrän.
 
         Returns:
             int: Laskutoimitusten määrä.
@@ -230,7 +230,7 @@ class CalculationService:
         return self._calcdata.count_calculations()
 
     def return_calculations(self):
-        """Tulostaa lasketut laskutoimitukset.
+        """Palauttaa lasketut laskutoimitukset.
 
         Returns:
             Lista laskutoimituksista.
@@ -239,19 +239,19 @@ class CalculationService:
         return self._calcdata.print_calculations()
 
     def add_result(self, result):
-        """Tallentaa tuloksen _calcdata-olioon.
+        """Tallentaa tuloksen calculations.db tietokantaan.
 
         Args:
-            result (int or float): Laskutoimituksen tulos.
+            result (int, float or str): Laskutoimituksen tulos.
         """
 
         self._calcdata.add_calculation(result)
 
     def get_last_result(self):
-        """Hakee ja tulostaa viimeisimmän laskutoimituksen tuloksen.
+        """Hakee viimeisimmän laskutoimituksen tuloksen.
 
         Returns:
-            int, float or str: Viimeisimmän laskutoimituksen tulos.
+            str: Viimeisimmän laskutoimituksen tulos.
         """
 
         return self._calcdata.get_last()
@@ -265,9 +265,9 @@ class CalculationService:
         """
 
         if self._calcdata.count_calculations() > 0:
-            calculation_to_be_removed = self.get_last_result()
+            last = self._calcdata.get_last()
             self._calcdata.clear_last()
-            return f"Cleared last result from memory: {calculation_to_be_removed}.\n"
+            return f"Cleared last result from memory: {last}.\n"
         return "Error: Memory is empty.\n"
 
     def clear_all_calculations(self):
