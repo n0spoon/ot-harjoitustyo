@@ -24,3 +24,7 @@
 - Lisätty docstring dokumentaatio luokille calculation_service.py, calculation_repository.py ja io.py
 - Lisätty toiminnallisuus käänteislukujen laskemiseen, viimeisen tuloksen käyttämiseen laskuissa, viimeisimmän tuloksen poistamiseen muistista, kaikkien tuloksien poistamiseen muistista ja testit uusille toiminnallisuuksille
 
+## Viikko 7
+- Lisätty sqlite3 tietojen pysyväistallennukseen ja toiminnallisuus sekä tiedon lisäämiseen että poistamiseen tietokannasta
+- Paranneltu docstring dokumentaatiota
+- Eriytetty laskimen tietokanta ja testitietokanta, jotta testien suorittaminen sovelluksen käynnissä ollessa ei pyyhi muistia
