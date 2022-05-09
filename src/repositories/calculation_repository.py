@@ -5,7 +5,7 @@ class CalculationRepository:
     """Laskutoimitusten säilönnästä vastaava luokka"""
 
     def __init__(self):
-        """Luokan konstruktori.
+        """Luokan konstruktori, luo uuden tietokanta-olion.
 
         Args:
             _db: Tietokantayhteyden Connection-olio
@@ -14,7 +14,7 @@ class CalculationRepository:
         self._db = get_db_connection()
 
     def add_calculation(self, result):
-        """Lisää laskutoimituksen tuloksen muistiin.
+        """Lisää laskutoimituksen tuloksen tietokannan muistiin.
 
         Args:
             result (str): Laskutoimituksen tulos.
@@ -30,7 +30,7 @@ class CalculationRepository:
         self._db.commit()
 
     def print_calculations(self):
-        """Hakee ja palauttaa listan, jossa on laskutoimituksien tulokset.
+        """Hakee ja palauttaa listan, jossa on laskutoimitusten tulokset.
 
         Returns:
             Lista laskutoimituksista.
@@ -62,10 +62,11 @@ class CalculationRepository:
         return len(calculations)
 
     def get_last(self):
-        """Palauttaa viimeisen tuloksen.
+        """Palauttaa viimeisen laskutoimituksen tuloksen.
 
         Returns:
             str: Viimeisimmän laskutoimituksen tulos tietokannassa.
+            str: Virheviesti, jos tietokanta on tyhjä.
         """
 
         if self.count_calculations() > 0:
@@ -80,19 +81,17 @@ class CalculationRepository:
         return "Memory is empty.\n"
 
     def clear_last(self):
-        """Poistaa viimeisimmän laskutoimituksen, jos muisti ei ole tyhjä."""
+        """Poistaa viimeisimmän laskutoimituksen tietokannan muistista."""
 
-        last = self.get_last()
         cursor = self._db.cursor()
 
         cursor.execute(
             "DELETE FROM Calculations WHERE id = (SELECT MAX(id) FROM Calculations)")
 
         self._db.commit()
-        return f"Cleared last result from memory: {last}.\n"
 
     def clear_all(self):
-        """Poistaa kaikki laskutoimitukset muistista, jos muisti ei ole tyhjä."""
+        """Poistaa kaikki laskutoimitukset tietokannan muistista."""
 
         cursor = self._db.cursor()
 

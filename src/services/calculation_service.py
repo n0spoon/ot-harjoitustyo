@@ -2,11 +2,7 @@ from repositories.calculation_repository import CalculationRepository
 
 
 class CalculationService:
-    """Luokka, joka muuntaa syötteen luvuksi ja laskee käyttäjän määrittämän laskutoimituksen.
-
-    Attributes:
-        _calcdata: CalculationRepository instanssi, johon talletetaan laskutoimituksien tulokset.
-    """
+    """Luokka, joka muuntaa syötteen luvuksi ja laskee käyttäjän määrittämän laskutoimituksen."""
 
     def __init__(self):
         """Luokan konstruktori.  Luo uuden CalculationRepository-olion.
@@ -129,7 +125,7 @@ class CalculationService:
             return ""
 
     def sqrt_service(self, var_a):
-        """Laskee reaaliluvun neliöjuuren.
+        """Laskee positiivisen reaaliluvun neliöjuuren.
 
         Args:
             var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
@@ -230,7 +226,7 @@ class CalculationService:
         return self._calcdata.count_calculations()
 
     def return_calculations(self):
-        """Palauttaa lasketut laskutoimitukset.
+        """Palauttaa listan lasketuista laskutoimituksista.
 
         Returns:
             Lista laskutoimituksista.
@@ -239,7 +235,7 @@ class CalculationService:
         return self._calcdata.print_calculations()
 
     def add_result(self, result):
-        """Tallentaa tuloksen calculations.db tietokantaan.
+        """Tallentaa tuloksen tietokantaan.
 
         Args:
             result (int, float or str): Laskutoimituksen tulos.
@@ -267,7 +263,7 @@ class CalculationService:
         if self._calcdata.count_calculations() > 0:
             last = self._calcdata.get_last()
             self._calcdata.clear_last()
-            return f"Cleared last result from memory: {last}.\n"
+            return f"Cleared last result from memory: {last}\n"
         return "Error: Memory is empty.\n"
 
     def clear_all_calculations(self):
