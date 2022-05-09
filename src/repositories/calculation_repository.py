@@ -2,13 +2,13 @@ from db_connection import get_db_connection
 
 
 class CalculationRepository:
-    """Laskutoimitusten säilönnästä vastaava luokka"""
+    """Laskutoimitusten säilönnästä vastaava luokka."""
 
     def __init__(self):
         """Luokan konstruktori, luo uuden tietokanta-olion.
 
         Args:
-            _db: Tietokantayhteyden Connection-olio
+            _db: Tietokantayhteyden Connection-olio.
         """
 
         self._db = get_db_connection()
