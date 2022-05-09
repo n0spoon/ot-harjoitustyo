@@ -26,6 +26,10 @@ poetry run invoke start
 
 **Do not input decimals as fractions e.g. 1/2, 3/8 or 1/10, these won't be processed**
 
+## Note about Python-version
+
+Application has been tested with Python `3.8`.  Older versions of Python might not function as intended.
+
 ## Command line functions
 
 ### Tests

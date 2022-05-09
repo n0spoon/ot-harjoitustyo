@@ -13,6 +13,11 @@
 poetry install
 ```
 
+- Initialize database
+```bash
+poetry run invoke init
+```
+
 - Start application
 ```bash
 poetry run invoke start
@@ -21,6 +26,10 @@ poetry run invoke start
 **Remember to use a dot . for decimal part representation e.g. 2.5, 0.75, 3.1415**
 
 **Do not input decimals as fractions e.g. 1/2, 3/8 or 1/10, these won't be processed**
+
+## Note about Python-version
+
+Application has been tested with Python `3.8`.  Older version of Python might not function as intended.
 
 ## Start
 
