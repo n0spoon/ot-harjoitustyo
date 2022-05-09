@@ -10,6 +10,9 @@ class TestCalculatorService(unittest.TestCase):
         self.calculator = CalculationService()
         self.calculator.clear_all_calculations()
 
+    def tearDown(self):
+        self.calculator.clear_all_calculations()
+
     def test_string_to_number_input_error(self):
         self.assertEqual(self.calculator.string_to_number("456.kek"), None)
 
@@ -150,6 +153,3 @@ class TestCalculatorService(unittest.TestCase):
     def test_inv_service_invalid_input(self):
         self.assertEqual(self.calculator.inv_service(
             "failings"), "")
-
-    def test_clear_whole_memory(self):
-        self.calculator.clear_all_calculations()

@@ -7,6 +7,9 @@ class TestCalculationRepository(unittest.TestCase):
         self.calculator = CalculationService()
         self.calculator.clear_all_calculations()
 
+    def tearDown(self):
+        self.calculator.clear_all_calculations()
+
     def test_calculations_at_start(self):
         self.assertEqual(self.calculator.count(), 0)
 

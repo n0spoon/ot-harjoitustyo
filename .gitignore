@@ -4,3 +4,4 @@ __pycache__
 .vscode
 htmlcov
 data/calculations.db
+data/test-calculations.db
