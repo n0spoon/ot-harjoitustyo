@@ -150,3 +150,6 @@ class TestCalculatorService(unittest.TestCase):
     def test_inv_service_invalid_input(self):
         self.assertEqual(self.calculator.inv_service(
             "failings"), "")
+
+    def test_clear_whole_memory(self):
+        self.calculator.clear_all_calculations()
