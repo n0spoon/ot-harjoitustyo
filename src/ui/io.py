@@ -56,9 +56,6 @@ class IO:
             if command == "?":
                 print("Calculations:", self._calculator.count(), "\n")
                 continue
-            if command == "print":
-                print(self._calculator.return_calculations())
-                continue
             if command not in self._commands:
                 print(f"Error: False Command {command}")
                 self.print_guide()
