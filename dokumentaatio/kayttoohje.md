@@ -38,9 +38,18 @@ Program opens a TUI (text-based user interface) that shows available commands.
 
 ## Usage
 
-Type command followed by an enter key.  Program can show 17 decimal places of digits.
+Type command followed by an enter key.
 ![Basic Usage](./photos/basic-calculations.png)
 
 
 A square root will result in a plusminus answer, that will count as one calculation.  When used with 'last' command, calculator will however calculate both negative and positive outcomes which each will count as a calculation.
 ![Plusminus Calculations](./photos/plusminus-calculations.png)
+
+
+Example of finding volume of a cylinder with 23cm radius and 42cm height.
+![Volume of a Cylinder](./photos/cylinder-volume.png)
+In the end we divide the result by 10, to get the volume in liters and round up manually result ≈ 6980L.
+ 
+
+Commands for utility.
+![Utility Commands](./photos/utility-commands.png)
