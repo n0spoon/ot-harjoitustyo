@@ -18,13 +18,19 @@ class IO:
             "-": self._calculator.sub_service,
             "*": self._calculator.mul_service,
             "/": self._calculator.div_service,
-            "?": self._calculator.count(),
+            "?": self._calculator.count,
             "sqrt": self._calculator.sqrt_service,
             "exp": self._calculator.exp_service,
             "inv": self._calculator.inv_service,
             "last": self._calculator.get_last_result,
             "clearlast": self._calculator.clear_last_calculation,
-            "clearall": self._calculator._calcdata.clear_all,
+            "cl": self._calculator.clear_last_calculation,
+            "clearall": self._calculator.clear_all_calculations,
+            "ca": self._calculator.clear_all_calculations,
+            "pi": self._calculator.constant_pi,
+            "e": self._calculator.constant_e,
+            "ceil": self._calculator.ceil_service,
+            "floor": self._calculator.floor_service,
         }
         self._guide = {
             1: "__________________________________________________________________\n",
@@ -36,12 +42,16 @@ class IO:
             7: " Enter sqrt to calculate square root of a positive number",
             8: " Enter exp to calculate value of first number raised into second",
             9: " Enter inv to calculate inverse value of a number",
-            10: " Enter last instead of a number in calculation to use latest result",
-            11: " Enter clearlast to remove latest calculation from memory",
-            12: " Enter clearall to remove all calculations from memory",
-            13: " Enter ? to get a count of calculations performed",
-            14: " Enter x to stop",
-            15: "__________________________________________________________________\n",
+            10: " Enter ceil to calculate the ceiling value of a number",
+            11: " Enter floor to calculate the floor value of a number",
+            12: " Enter last to get latest result, can be used in calculations",
+            13: " Enter pi in calculation to use the value of pi",
+            14: " Enter e in calculation to use the value of Euler's number",
+            15: " Enter clearlast or cl to remove latest calculation from memory",
+            16: " Enter clearall or ca to remove all calculations from memory",
+            17: " Enter ? to get a count of calculations performed",
+            18: " Enter exit to stop",
+            19: "__________________________________________________________________\n",
         }
 
     def start(self):
@@ -50,7 +60,7 @@ class IO:
         self.print_guide()
         while True:
             command = input("Enter command: ")
-            if command == "x":
+            if command == "exit":
                 print(f"Exiting Calculator..\n")
                 break
             if command == "?":
@@ -62,26 +72,47 @@ class IO:
                 continue
             calculation = self._commands[command]
             if callable(calculation):
-                if command == "clearlast":
+                if command == "clearlast" or command == "cl":
                     print(self._calculator.clear_last_calculation())
                     continue
-                if command == "clearall":
+                if command == "clearall" or command == "ca":
                     print(self._calculator.clear_all_calculations())
                     continue
-                if command == "sqrt" or command == "inv":
-                    var_a = input("Enter a positive number: ")
+                if command == "sqrt" or command == "inv" or command == "ceil" or command == "floor":
+                    if command == "sqrt" or command == "inv":
+                        var_a = input("Enter a positive number: ")
+                    if command == "ceil" or command == "floor":
+                        var_a = input("Enter a number: ")
+                    if var_a == "pi":
+                        var_a = self._calculator.constant_pi()
+                    if var_a == "e":
+                        var_a = self._calculator.constant_e()
                     if var_a == "last":
-                        var_a = self._calculator.get_last_result()
-                        if isinstance(var_a, str):
-                            if var_a[0] == "±":
-                                var_a = var_a.strip("±")
-                                print(calculation("-" + var_a))
-                                print(calculation(var_a))
-                                continue
+                        if self._calculator.memory_is_empty() == False:
+                            var_a = self._calculator.get_last_result()
+                            if isinstance(var_a, str):
+                                if var_a[0] == "±":
+                                    var_a = var_a.strip("±")
+                                    print(calculation("-" + var_a))
+                                    print(calculation(var_a))
+                                    continue
+                        if self._calculator.memory_is_empty() == True:
+                            print("Error: Memory is empty\n")
+                            continue
                     print(calculation(var_a))
                     continue
                 if command == "last":
-                    print("Error: Use last in a calculation\n")
+                    if self._calculator.memory_is_empty() == False:
+                        print(
+                            f"Latest result in memory: {self._calculator.get_last_result()}\n")
+                    if self._calculator.memory_is_empty() == True:
+                        print("Error: Memory is empty\n")
+                    continue
+                if command == "pi":
+                    print("Error: Use pi in a calculation\n")
+                    continue
+                if command == "e":
+                    print("Error: Use e in a calculation\n")
                     continue
                 var_a = input("Enter first number: ")
                 var_b = input("Enter second number: ")
@@ -107,6 +138,14 @@ class IO:
                         if var_b[0] == "±":
                             var_b = var_b.strip("±")
                             print(calculation(var_a, "-" + var_b))
+                if var_a == "pi":
+                    var_a = self._calculator.constant_pi()
+                if var_a == "e":
+                    var_a = self._calculator.constant_e()
+                if var_b == "pi":
+                    var_b = self._calculator.constant_pi()
+                if var_b == "e":
+                    var_b = self._calculator.constant_e()
                 print(calculation(var_a, var_b))
 
     def print_guide(self):

@@ -13,6 +13,13 @@ class TestCalculationRepository(unittest.TestCase):
     def test_calculations_at_start(self):
         self.assertEqual(self.calculator.count(), 0)
 
+    def test_memory_is_empty(self):
+        self.assertTrue(self.calculator.memory_is_empty())
+
+    def test_memory_not_empty(self):
+        self.calculator.ceil_service(self.calculator.constant_pi())
+        self.assertFalse(self.calculator.memory_is_empty())
+
     def test_no_calculations_at_start(self):
         self.assertEqual(self.calculator.get_last_result(),
                          "Memory is empty.\n")

@@ -1,3 +1,4 @@
+import math
 from repositories.calculation_repository import CalculationRepository
 
 
@@ -12,6 +13,12 @@ class CalculationService:
         """
 
         self._calcdata = CalculationRepository()
+
+    def constant_pi(self):
+        return math.pi
+
+    def constant_e(self):
+        return math.e
 
     def string_to_number(self, var_s):
         """Muuntaa merkkijonon luvuksi mikäli se on joko liuku- tai kokonaisluku.
@@ -198,6 +205,24 @@ class CalculationService:
         except TypeError:
             return ""
 
+    def ceil_service(self, var_a):
+        try:
+            var_x = self.string_to_number(var_a)
+            result = math.ceil(var_x)
+            self.add_result(result)
+            return f"The ceiling value of {var_a} = {result}\n"
+        except TypeError:
+            return ""
+
+    def floor_service(self, var_a):
+        try:
+            var_x = self.string_to_number(var_a)
+            result = math.floor(var_x)
+            self.add_result(result)
+            return f"The floor value of {var_a} = {result}\n"
+        except TypeError:
+            return ""
+
     def clean_result(self, result):
         """Siistii annetun luvun kokonaisluvuksi mikäli mahdollista.
 
@@ -253,7 +278,7 @@ class CalculationService:
         return self._calcdata.get_last()
 
     def clear_last_calculation(self):
-        """Poistaa viimeisimmän laskutoimituksen tuloksen muistista.
+        """Poistaa viimeisimmän laskutoimituksen tuloksen muistista, jos muisti ei ole tyhjä.
 
         Returns:
             str: Ilmoittaa poistetun tuloksen, jos muisti ei ole tyhjä.
@@ -267,7 +292,7 @@ class CalculationService:
         return "Error: Memory is empty.\n"
 
     def clear_all_calculations(self):
-        """Poistaa kaikkien laskutoimitusten tulokset muistista.
+        """Poistaa kaikkien laskutoimitusten tulokset muistista, jos muisti ei ole tyhjä.
 
         Returns:
             str: Ilmoittaa muistin tyhjentyneen, jos muisti ei ole tyhjä.
@@ -278,3 +303,13 @@ class CalculationService:
             self._calcdata.clear_all()
             return "Cleared everything from memory.\n"
         return "Error: Memory is empty.\n"
+
+    def memory_is_empty(self):
+        """Palauttaa totuusarvon, joka kuvaa muistin tilaa.
+
+        Returns:
+            True: Muisti on tyhjä
+            False: Muisti ei ole tyhjä
+        """
+
+        return self._calcdata.memory_is_empty()

@@ -153,3 +153,33 @@ class TestCalculatorService(unittest.TestCase):
     def test_inv_service_invalid_input(self):
         self.assertEqual(self.calculator.inv_service(
             "failings"), "")
+
+    def test_ceil_service_pi(self):
+        self.assertEqual(self.calculator.ceil_service(
+            self.calculator.constant_pi()
+        ), "The ceiling value of 3.141592653589793 = 4\n")
+
+    def test_ceil_service_neper(self):
+        self.assertEqual(self.calculator.ceil_service(
+            self.calculator.constant_e()
+        ), "The ceiling value of 2.718281828459045 = 3\n")
+
+    def test_ceil_service_invalid_input(self):
+        self.assertEqual(self.calculator.ceil_service(
+            "asdasd.0974"
+        ), "")
+
+    def test_floor_service_pi(self):
+        self.assertEqual(self.calculator.floor_service(
+            self.calculator.constant_pi()
+        ), "The floor value of 3.141592653589793 = 3\n")
+
+    def test_floor_service_neper(self):
+        self.assertEqual(self.calculator.floor_service(
+            self.calculator.constant_e()
+        ), "The floor value of 2.718281828459045 = 2\n")
+
+    def test_floor_service_invalid_input(self):
+        self.assertEqual(self.calculator.floor_service(
+            "yepep.5678"
+        ), "")

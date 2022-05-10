@@ -61,6 +61,16 @@ class CalculationRepository:
         calculations = cursor.fetchall()
         return len(calculations)
 
+    def memory_is_empty(self):
+        """Palauttaa totuusarvon, joka kuvaa muistin tilaa.
+
+        Returns:
+            True: Muisti on tyhjä
+            False: Muisti ei ole tyhjä
+        """
+
+        return self.count_calculations() < 1
+
     def get_last(self):
         """Palauttaa viimeisen laskutoimituksen tuloksen.
 
