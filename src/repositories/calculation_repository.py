@@ -79,7 +79,7 @@ class CalculationRepository:
             str: Virheviesti, jos tietokanta on tyhjä.
         """
 
-        if self.count_calculations() > 0:
+        if not self.memory_is_empty():
             cursor = self._db.cursor()
 
             cursor.execute(
@@ -88,7 +88,7 @@ class CalculationRepository:
 
             unpacked_result = dict(zip(result.keys(), result))
             return unpacked_result["result"]
-        return "Memory is empty.\n"
+        return "Memory is empty\n"
 
     def clear_last(self):
         """Poistaa viimeisimmän laskutoimituksen tietokannan muistista."""

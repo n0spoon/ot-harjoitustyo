@@ -166,8 +166,7 @@ class TestCalculatorService(unittest.TestCase):
 
     def test_ceil_service_invalid_input(self):
         self.assertEqual(self.calculator.ceil_service(
-            "asdasd.0974"
-        ), "")
+            "asdasd.0974"), "")
 
     def test_floor_service_pi(self):
         self.assertEqual(self.calculator.floor_service(
@@ -181,5 +180,4 @@ class TestCalculatorService(unittest.TestCase):
 
     def test_floor_service_invalid_input(self):
         self.assertEqual(self.calculator.floor_service(
-            "yepep.5678"
-        ), "")
+            "yepep.5678"), "")

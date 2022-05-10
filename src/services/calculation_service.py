@@ -15,9 +15,21 @@ class CalculationService:
         self._calcdata = CalculationRepository()
 
     def constant_pi(self):
+        """Pii vakio math kirjastosta.
+
+        Returns:
+            float: Piin likiarvo.
+        """
+
         return math.pi
 
     def constant_e(self):
+        """Neperin luku math kirjastosta.
+
+        Returns:
+            float: Neperin luvun likiarvo.
+        """
+
         return math.e
 
     def string_to_number(self, var_s):
@@ -44,8 +56,8 @@ class CalculationService:
         """Laskee kahden luvun summan.
 
         Args:
-            var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
-            var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
+            var_a (str): Käyttäjän syöttämä luku.
+            var_b (str): Käyttäjän syöttämä luku.
 
         Returns:
             None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
@@ -66,8 +78,8 @@ class CalculationService:
         """Laskee kahden luvun erotuksen.
 
         Args:
-            var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
-            var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
+            var_a (str): Käyttäjän syöttämä luku.
+            var_b (str): Käyttäjän syöttämä luku.
 
         Returns:
             None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
@@ -88,8 +100,8 @@ class CalculationService:
         """Laskee kahden luvun kertolaskun.
 
         Args:
-            var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
-            var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
+            var_a (str): Käyttäjän syöttämä luku.
+            var_b (str): Käyttäjän syöttämä luku.
 
         Returns:
             None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
@@ -110,8 +122,8 @@ class CalculationService:
         """Laskee jakolaskun, jossa var_a on jaettava ja var_b on jakaja.
 
         Args:
-            var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
-            var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
+            var_a (str): Käyttäjän syöttämä luku.
+            var_b (str): Käyttäjän syöttämä luku.
 
         Returns:
             None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
@@ -135,7 +147,7 @@ class CalculationService:
         """Laskee positiivisen reaaliluvun neliöjuuren.
 
         Args:
-            var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
+            var_a (str): Käyttäjän syöttämä luku.
 
         Returns:
             None: Jos muuttuja var_a ei ole luku.
@@ -158,8 +170,8 @@ class CalculationService:
         """Laskee exponenttilaskun, jossa var_a on kantaluku ja var_b eksponentti.
 
         Args:
-            var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku, kantaluku.
-            var_b (int or float): Käyttäjän syöttämä kokonais- tai liukuluku, eksponentti.
+            var_a (str): Käyttäjän syöttämä luku, kantaluku.
+            var_b (str): Käyttäjän syöttämä luku, eksponentti.
 
         Returns:
             None: Jos vähintään toinen muuttujista var_a tai var_b ei ole luku.
@@ -186,7 +198,7 @@ class CalculationService:
         """Laskee luvun var_a käänteisluvun.
 
         Args:
-            var_a (int or float): Käyttäjän syöttämä kokonais- tai liukuluku.
+            var_a (str): Käyttäjän syöttämä luku.
 
         Returns:
             None: Jos muuttuja var_a ei ole luku.
@@ -206,6 +218,16 @@ class CalculationService:
             return ""
 
     def ceil_service(self, var_a):
+        """Laskee luvun kattofunktion tuloksen.
+
+        Args:
+            var_a (str): Käyttäjän syöttämä luku.
+
+        Returns:
+            None: Jos muuttuja var_a ei ole luku.
+            str: Laskutoimitus ja tulos.
+        """
+
         try:
             var_x = self.string_to_number(var_a)
             result = math.ceil(var_x)
@@ -215,6 +237,16 @@ class CalculationService:
             return ""
 
     def floor_service(self, var_a):
+        """Laskee luvun lattiafunktion tuloksen.
+
+        Args:
+            var_a (str): Käyttäjän syöttämä luku.
+
+        Returns:
+            None: Jos muuttuja var_a ei ole luku.
+            str: Laskutoimitus ja tulos.
+        """
+
         try:
             var_x = self.string_to_number(var_a)
             result = math.floor(var_x)
@@ -251,13 +283,20 @@ class CalculationService:
         return self._calcdata.count_calculations()
 
     def return_calculations(self):
-        """Palauttaa listan lasketuista laskutoimituksista.
+        """Palauttaa merkkijonon, jossa on laskettujen laskutoimitusten tulokset.
 
         Returns:
-            Lista laskutoimituksista.
+            Virheviesti, jos muisti on tyhjä.
+            str: Muistissa olevien laskutoimitusten tulokset.
         """
 
-        return self._calcdata.print_calculations()
+        if not self.memory_is_empty():
+            calculations = self._calcdata.print_calculations()
+            to_print = ""
+            for calculation in calculations:
+                to_print += calculation + ", "
+            return f"Calculations in memory: {to_print[:-2]}\n"
+        return "Error: Memory is empty.\n"
 
     def add_result(self, result):
         """Tallentaa tuloksen tietokantaan.

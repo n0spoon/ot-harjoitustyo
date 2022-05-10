@@ -31,6 +31,7 @@ class IO:
             "e": self._calculator.constant_e,
             "ceil": self._calculator.ceil_service,
             "floor": self._calculator.floor_service,
+            "print": self._calculator.return_calculations,
         }
         self._guide = {
             1: "__________________________________________________________________\n",
@@ -44,18 +45,19 @@ class IO:
             9: " Enter inv to calculate inverse value of a number",
             10: " Enter ceil to calculate the ceiling value of a number",
             11: " Enter floor to calculate the floor value of a number",
-            12: " Enter last to get latest result, can be used in calculations",
+            12: " Enter e in calculation to use the value of Euler's number",
             13: " Enter pi in calculation to use the value of pi",
-            14: " Enter e in calculation to use the value of Euler's number",
-            15: " Enter clearlast or cl to remove latest calculation from memory",
-            16: " Enter clearall or ca to remove all calculations from memory",
-            17: " Enter ? to get a count of calculations performed",
-            18: " Enter exit to stop",
-            19: "__________________________________________________________________\n",
+            14: " Enter last to get latest result, can be used in calculations",
+            15: " Enter print to get all calculations in memory",
+            16: " Enter clearlast or cl to remove latest calculation from memory",
+            17: " Enter clearall or ca to remove all calculations from memory",
+            18: " Enter ? to get a count of calculations performed",
+            19: " Enter exit to stop",
+            20: "__________________________________________________________________\n",
         }
 
     def start(self):
-        """Käynnistää käyttöliittymän."""
+        """Käynnistää ja vastaa käyttöliittymän toiminnasta"""
 
         self.print_guide()
         while True:
@@ -72,6 +74,9 @@ class IO:
                 continue
             calculation = self._commands[command]
             if callable(calculation):
+                if command == "print":
+                    print(self._calculator.return_calculations())
+                    continue
                 if command == "clearlast" or command == "cl":
                     print(self._calculator.clear_last_calculation())
                     continue
@@ -88,7 +93,7 @@ class IO:
                     if var_a == "e":
                         var_a = self._calculator.constant_e()
                     if var_a == "last":
-                        if self._calculator.memory_is_empty() == False:
+                        if not self._calculator.memory_is_empty():
                             var_a = self._calculator.get_last_result()
                             if isinstance(var_a, str):
                                 if var_a[0] == "±":
@@ -96,23 +101,23 @@ class IO:
                                     print(calculation("-" + var_a))
                                     print(calculation(var_a))
                                     continue
-                        if self._calculator.memory_is_empty() == True:
-                            print("Error: Memory is empty\n")
+                        if self._calculator.memory_is_empty():
+                            print("Error: Memory is empty.\n")
                             continue
                     print(calculation(var_a))
                     continue
                 if command == "last":
-                    if self._calculator.memory_is_empty() == False:
+                    if not self._calculator.memory_is_empty():
                         print(
                             f"Latest result in memory: {self._calculator.get_last_result()}\n")
-                    if self._calculator.memory_is_empty() == True:
-                        print("Error: Memory is empty\n")
+                    if self._calculator.memory_is_empty():
+                        print("Error: Memory is empty.\n")
                     continue
                 if command == "pi":
-                    print("Error: Use pi in a calculation\n")
+                    print("Error: Use pi in a calculation.\n")
                     continue
                 if command == "e":
-                    print("Error: Use e in a calculation\n")
+                    print("Error: Use e in a calculation.\n")
                     continue
                 var_a = input("Enter first number: ")
                 var_b = input("Enter second number: ")

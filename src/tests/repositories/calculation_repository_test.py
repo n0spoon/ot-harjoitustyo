@@ -22,10 +22,11 @@ class TestCalculationRepository(unittest.TestCase):
 
     def test_no_calculations_at_start(self):
         self.assertEqual(self.calculator.get_last_result(),
-                         "Memory is empty.\n")
+                         "Memory is empty\n")
 
-    def test_none_calculations_at_start(self):
-        self.assertEqual(self.calculator.return_calculations(), [])
+    def test_no_calculations_in_memory_at_start(self):
+        self.assertEqual(self.calculator.return_calculations(),
+                         "Error: Memory is empty.\n")
 
     def test_calculations_after_two_sum(self):
         self.calculator.sum_service("2", "3")
@@ -52,6 +53,27 @@ class TestCalculationRepository(unittest.TestCase):
         self.calculator.sqrt_service(4)
         self.assertEqual(self.calculator.count(), 2)
 
+    def test_calculations_after_two_exp(self):
+        self.calculator.exp_service("2", 16)
+        self.calculator.exp_service(2, "0.5")
+        self.assertEqual(self.calculator.count(), 2)
+
+    def test_calculations_after_two_inv(self):
+        self.calculator.inv_service("0")
+        self.calculator.inv_service("100000")
+        self.calculator.inv_service(0.1)
+        self.assertEqual(self.calculator.count(), 2)
+
+    def test_calculations_after_two_ceil(self):
+        self.calculator.ceil_service(self.calculator.constant_e())
+        self.calculator.ceil_service(self.calculator.constant_pi())
+        self.assertEqual(self.calculator.count(), 2)
+
+    def test_calculations_after_two_floor(self):
+        self.calculator.floor_service(self.calculator.constant_e())
+        self.calculator.floor_service(self.calculator.constant_pi())
+        self.assertEqual(self.calculator.count(), 2)
+
     def test_calculations_after_error_sum(self):
         self.calculator.sum_service("lkl.840", 99)
         self.assertEqual(self.calculator.count(), 0)
@@ -70,6 +92,22 @@ class TestCalculationRepository(unittest.TestCase):
 
     def test_calculations_after_error_sqrt(self):
         self.calculator.sqrt_service("yep.123")
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_after_error_exp(self):
+        self.calculator.exp_service("56.op", 42)
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_after_error_inv(self):
+        self.calculator.inv_service("error")
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_after_error_ceil(self):
+        self.calculator.ceil_service("nopers.nope\n")
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_calculations_after_error_floor(self):
+        self.calculator.floor_service("123.nop")
         self.assertEqual(self.calculator.count(), 0)
 
     def test_calculations_get_last_result_sqrt(self):
@@ -103,6 +141,11 @@ class TestCalculationRepository(unittest.TestCase):
         self.assertEqual(self.calculator.clear_all_calculations(),
                          "Cleared everything from memory.\n")
 
-    def test_clear_all_from_memory(self):
-        self.assertEqual(self.calculator.clear_all_calculations(),
-                         "Error: Memory is empty.\n")
+    def test_print_all_calculations(self):
+        self.calculator.sqrt_service(4)
+        self.calculator.exp_service(2, "5")
+        self.calculator.inv_service("5")
+        self.calculator.div_service("1", 4)
+        self.calculator.floor_service(4.313)
+        self.assertEqual(self.calculator.return_calculations(),
+                         "Calculations in memory: ±2, 32, 0.2, 0.25, 4\n")
