@@ -26,10 +26,11 @@ Sovelluksen perusmallin jälkeen laskinta mahdollisesti jatkokehitetään seuraa
   - Kaksikantaiset logaritmit
   - Luku korkeampaan potenssiin kuin toiseen "tehty"
   - Kuutiojuuret
+  - sqlite3 integraatio "tehty"
   - Kertoma
-  - Piin ja Neperin luvun likiarvot
+  - Piin ja Neperin luvun likiarvot "tehty"
   - Itseisarvo
-  - Lattia- ja kattofunktiot
+  - Lattia- ja kattofunktiot "tehty"
 - Profiilit
   - Useampi kuin yksi profiili muistitoimintoja varten
     - Profiilit useammalle kuin yhdelle käyttäjälle
