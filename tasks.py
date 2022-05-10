@@ -27,4 +27,4 @@ def lint(ctx):
 
 @task
 def init(ctx):
-    ctx.run("python3 src/init_db.py")
+    ctx.run("python3 src/init_db.py", pty=True)
