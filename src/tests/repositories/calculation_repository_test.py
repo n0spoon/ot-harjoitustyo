@@ -22,7 +22,7 @@ class TestCalculationRepository(unittest.TestCase):
 
     def test_no_calculations_at_start(self):
         self.assertEqual(self.calculator.get_last_result(),
-                         "Memory is empty\n")
+                         "Memory is empty.\n")
 
     def test_no_calculations_in_memory_at_start(self):
         self.assertEqual(self.calculator.return_calculations(),
