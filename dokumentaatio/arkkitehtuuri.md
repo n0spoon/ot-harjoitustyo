@@ -15,6 +15,7 @@ Class _CalculationService_ forms and responds for application logic, which repre
      CalculationService "1" -- "1" CalculationRepository
      class CalculationService{
          calcdata
+     : constant_pi()
      : string_to_number(var_s)
      : sum_service(var_a, var_b)
      : sub_service(var_a, var_b)
@@ -22,16 +23,27 @@ Class _CalculationService_ forms and responds for application logic, which repre
      : div_service(var_a, var_b)
      : sqrt_service(var_a)
      : exp_service(var_a, var_b)
+     : inv_service(var_a)
+     : ceil_service(var_a)
+     : floor_service(var_a)
      : clean_result(result)
      : count()
      : return_calculations()
-     : add(result)
+     : add_result(result)
+     : get_last_result()
+     : clear_last_calculation()
+     : clear_all_calculations()
+     : memory_is_empty()
      }
      class CalculationRepository{
-         calculations
-     : add_calculation(content)
+         db
+     : add_calculation(result)
      : print_calculations()
      : count_calculations()
+     : memory_is_empty()
+     : get_last()
+     : clear_last()
+     : clear_all()
      }
 ```
 
@@ -65,7 +77,7 @@ Sequence diagram illustrating functionality of the application calculating 2 to 
      CalculationService->>CalculationService: add_result(result)
      CalculationService->>CalculationRepository: add_calculation(content) 
      CalculationService->>IO: "2^12 = 4096"
-     IO->>IO: print(2^12 = 4096)
+     IO->>IO: print("2^12 = 4096")
      IO->>User: input("Enter command: ")
      User->>IO: "x"
      IO->>IO: command = "x"
