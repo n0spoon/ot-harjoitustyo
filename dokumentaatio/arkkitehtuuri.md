@@ -16,6 +16,7 @@ Class _CalculationService_ forms and responds for application logic, which repre
      class CalculationService{
          calcdata
      : constant_pi()
+     : constant_e()
      : string_to_number(var_s)
      : sum_service(var_a, var_b)
      : sub_service(var_a, var_b)
