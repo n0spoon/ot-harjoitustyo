@@ -48,9 +48,14 @@ class CalculationService:
             return int(str(var_s), 0)
         except ValueError:
             try:
+                try:
+                    if var_s.lower() == "nan" or var_s.lower() == "-nan":
+                        return print(f"Error: {var_s} is not a number.")
+                except AttributeError:
+                    pass
                 return float(var_s)
             except ValueError:
-                return print(f"Error: {var_s} is not a number")
+                return print(f"Error: {var_s} is not a number.")
 
     def sum_service(self, var_a, var_b):
         """Laskee kahden luvun summan.

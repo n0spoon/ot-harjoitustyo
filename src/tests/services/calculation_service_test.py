@@ -22,6 +22,9 @@ class TestCalculatorService(unittest.TestCase):
     def test_string_to_number_input_success_float(self):
         self.assertEqual(self.calculator.string_to_number("123.456"), 123.456)
 
+    def test_string_to_number_nan_input(self):
+        self.assertIsNone(self.calculator.string_to_number("NaN"))
+
     def test_sum_service_integer(self):
         self.assertEqual(self.calculator.sum_service(
             self.x, self.z), "2 + 4 = 6\n")
@@ -37,6 +40,10 @@ class TestCalculatorService(unittest.TestCase):
     def test_sum_service_invalid_input(self):
         self.assertEqual(self.calculator.sum_service(
             "tjt.234", "123.ke9?"), "")
+
+    def test_sum_service_nan_input(self):
+        self.assertEqual(self.calculator.sum_service(
+            "nan", 13), "")
 
     def test_sub_service_integer(self):
         self.assertEqual(self.calculator.sub_service(
