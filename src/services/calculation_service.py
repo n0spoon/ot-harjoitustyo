@@ -1,5 +1,5 @@
-from pandas import isna
 from math import pi, e, ceil, floor
+from pandas import isna
 from repositories.calculation_repository import CalculationRepository
 
 
