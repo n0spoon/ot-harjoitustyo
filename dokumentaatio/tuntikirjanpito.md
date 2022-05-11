@@ -13,4 +13,5 @@
 | 03.05 | 7  | Harjoitustyöt 1-7 tehty, lisätty loput docstring dokumentaatiosta ja toiminnallisuudet käänteisluvun laskemiseen, viimeisen tuloksen käyttämiseen laskutoimituksessa, viimeisen tuloksen poistamiseen muistista, kaikkien tuloksien poistamiseen muistista ja testit näille toiminnallisuuksille | 
 | 09.05 | 7  | Lisätty sqlite3 tietojen pysyväystalletukseen ja toiminnallisuus sekä tiedon lisäämiseen että poistamiseen tietokannasta, eriytetty laskimen tietokanta ja testitietokanta, paranneltu docstring dokumentaatitoa |
 | 10.05 | 5  | Lisätty toiminnallisuus lattia- ja kattofunktioille, piin ja Neperin luvun likiarvoille, metodi joka tarkistaa onko muisti tyhjä, toiminnallisuus kaikkien laskutoimitusten tuloksien tulostamiseen.  Paranneltu käyttöohjetta ja lisätty uusia testejä |
+| 11.05 | 4  | Lisätty pandas kirjasto.  Sovellus tunnistaa not-a-number (NaN) syötteet, ja sivuuttaa niiden laskemisen sekä sivuuttaa NaN tuloksen tallentamisen tietokantaan.  Testit uusille toiminnallisuuksille |
 | yht.  | 56 |  |
