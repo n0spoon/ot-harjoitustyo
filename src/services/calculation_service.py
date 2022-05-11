@@ -1,4 +1,5 @@
-import math
+from pandas import isna
+from math import pi, e, ceil, floor
 from repositories.calculation_repository import CalculationRepository
 
 
@@ -21,7 +22,7 @@ class CalculationService:
             float: Piin likiarvo.
         """
 
-        return math.pi
+        return pi
 
     def constant_e(self):
         """Neperin luku math kirjastosta.
@@ -30,7 +31,7 @@ class CalculationService:
             float: Neperin luvun likiarvo.
         """
 
-        return math.e
+        return e
 
     def string_to_number(self, var_s):
         """Muuntaa merkkijonon luvuksi mikäli se on joko liuku- tai kokonaisluku.
@@ -69,6 +70,8 @@ class CalculationService:
             str: Laskutoimitus ja summalaskun tulos.
         """
 
+        if isna(var_a) or isna(var_b):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
             var_y = self.string_to_number(var_b)
@@ -91,6 +94,8 @@ class CalculationService:
             str: Laskutoimitus ja erotuslaskun tulos.
         """
 
+        if isna(var_a) or isna(var_b):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
             var_y = self.string_to_number(var_b)
@@ -113,6 +118,8 @@ class CalculationService:
             str: Laskutoimitus ja kertolaskun tulos.
         """
 
+        if isna(var_a) or isna(var_b):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
             var_y = self.string_to_number(var_b)
@@ -136,6 +143,8 @@ class CalculationService:
             str: Laskutoimitus ja jakolaskun tulos.
         """
 
+        if isna(var_a) or isna(var_b):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
             var_y = self.string_to_number(var_b)
@@ -160,6 +169,8 @@ class CalculationService:
             str: Laskutoimitus ja luvun neliöjuuren tulos.
         """
 
+        if isna(var_a):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
             if var_x < 0:
@@ -184,6 +195,8 @@ class CalculationService:
             str: Laskutoimitus ja eksponenttilaskun tulos.
         """
 
+        if isna(var_a) or isna(var_b):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
             var_y = self.string_to_number(var_b)
@@ -211,6 +224,8 @@ class CalculationService:
             str: Laskutoimitus ja luvun käänteisluku.
         """
 
+        if isna(var_a):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
             if var_x == 0:
@@ -233,9 +248,11 @@ class CalculationService:
             str: Laskutoimitus ja tulos.
         """
 
+        if isna(var_a):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
-            result = math.ceil(var_x)
+            result = ceil(var_x)
             self.add_result(result)
             return f"The ceiling value of {var_a} = {result}\n"
         except TypeError:
@@ -252,9 +269,11 @@ class CalculationService:
             str: Laskutoimitus ja tulos.
         """
 
+        if isna(var_a):
+            return ""
         try:
             var_x = self.string_to_number(var_a)
-            result = math.floor(var_x)
+            result = floor(var_x)
             self.add_result(result)
             return f"The floor value of {var_a} = {result}\n"
         except TypeError:
@@ -297,20 +316,20 @@ class CalculationService:
 
         if not self.memory_is_empty():
             calculations = self._calcdata.print_calculations()
-            to_print = ""
+            to_return = ""
             for calculation in calculations:
-                to_print += calculation + ", "
-            return f"Calculations in memory: {to_print[:-2]}\n"
+                to_return += calculation + ", "
+            return f"Calculations in memory: {to_return[:-2]}\n"
         return "Error: Memory is empty.\n"
 
     def add_result(self, result):
-        """Tallentaa tuloksen tietokantaan.
+        """Tallentaa tuloksen tietokantaan, jos tulos ei ole NaN.
 
         Args:
             result (int, float or str): Laskutoimituksen tulos.
         """
-
-        self._calcdata.add_calculation(result)
+        if not isna(result):
+            self._calcdata.add_calculation(result)
 
     def get_last_result(self):
         """Hakee viimeisimmän laskutoimituksen tuloksen.
@@ -329,7 +348,7 @@ class CalculationService:
             str: Ilmoittaa virheviestin, jos muisti on tyhjä.
         """
 
-        if self._calcdata.count_calculations() > 0:
+        if not self.memory_is_empty():
             last = self._calcdata.get_last()
             self._calcdata.clear_last()
             return f"Cleared last result from memory: {last}\n"
@@ -343,7 +362,7 @@ class CalculationService:
             str: Ilmoittaa virheviestin, jos muisti on tyhjä.
         """
 
-        if self._calcdata.count_calculations() > 0:
+        if not self.memory_is_empty():
             self._calcdata.clear_all()
             return "Cleared everything from memory.\n"
         return "Error: Memory is empty.\n"
