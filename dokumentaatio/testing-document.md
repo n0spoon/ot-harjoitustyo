@@ -24,7 +24,7 @@ Excluding the user interface layer, branch coverage for testing is 99%.
 
 ## System testing
 
-System testing of the application has been performed manually by the author in Linux environment.  Invalid and error-raising inputs have been checked, keyboard interrupts have not been altered to avoid problematic situations where user cannot exit the application.
+System testing of the application has been performed manually by the author in Linux environment.  Invalid and error-raising inputs have been checked.  Keyboard interrupts (e.g. CTRL+C) have not been altered to avoid problematic situations where user cannot exit the application.
 
 
 ### Installation and configuration
