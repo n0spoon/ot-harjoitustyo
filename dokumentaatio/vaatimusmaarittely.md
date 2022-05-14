@@ -18,6 +18,9 @@ Sovellus toimii laskimena, jolla on mahdollista suorittaa laskutoimenpiteitä ja
   - Tuloksen voi lisätä muistiin "tehty"
   - Tuloksen voi hakea muistista "tehty"
   - Tuloksen voi poistaa muistista "tehty"
+  - Viimeisintä tulosta voi käyttää laskutoimituksissa "tehty"
+  - Viimeisimmän tuloksen voi poistaa muistista "tehty"
+  - Kaikki muistissa olevat tulokset voidaan tulostaa "tehty"
 
 ## Jatkokehitykseen
 Sovelluksen perusmallin jälkeen laskinta mahdollisesti jatkokehitetään seuraavasti:
@@ -31,6 +34,9 @@ Sovelluksen perusmallin jälkeen laskinta mahdollisesti jatkokehitetään seuraa
   - Piin ja Neperin luvun likiarvot "tehty"
   - Itseisarvo
   - Lattia- ja kattofunktiot "tehty"
+    - Funktiot osaavat käsitellä 'inf' syötteen "tehty"
+  - Sovellus tunnistaa NaN (Not-a-Number) syötteen ja sivuuttaa sen "tehty"
+  - Sovellus tunnistaa NaN tuloksen ja sivuuttaa sen tallennuksen muistiin "tehty"
 - Profiilit
   - Useampi kuin yksi profiili muistitoimintoja varten
     - Profiilit useammalle kuin yhdelle käyttäjälle

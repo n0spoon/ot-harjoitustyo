@@ -35,3 +35,8 @@ Application has been fetched, installed and tested according to instructions in 
 ### Functionalities
 
 All of the implemented functionalities in the [definition document](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) have been tested.  
+
+
+## Existing quality issues
+
+- Cluttered error message when trying to use the last result in a calculation while memory is empty.
