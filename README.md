@@ -1,6 +1,6 @@
 # Calculator
 
-Application can perform calculations and functions determined by user input.  Store, read and write calculation result data in a sqlite3 database.
+Application can perform calculations and functions determined by user input.  Store, read and write calculation result data.
 
 **Input and output numbers are in base-10 and they can be integer or decimal separated with a dot(.) e.g. 2.5, 0.75, 3.1415.**  
 
