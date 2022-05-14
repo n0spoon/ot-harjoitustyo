@@ -2,7 +2,7 @@ import unittest
 from services.calculation_service import CalculationService
 
 
-class TestCalculatorService(unittest.TestCase):
+class TestCalculationService(unittest.TestCase):
     def setUp(self):
         self.x = 2
         self.y = 3
