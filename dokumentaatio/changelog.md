@@ -28,5 +28,5 @@
 - Lisätty sqlite3 tietojen pysyväistallennukseen ja toiminnallisuus sekä tiedon lisäämiseen että poistamiseen tietokannasta.
 - Paranneltu docstring dokumentaatiota.
 - Eriytetty laskimen tietokanta ja testitietokanta, jotta testien suorittaminen sovelluksen käynnissä ollessa ei pyyhi muistia.
-- Lisätty toiminnallisuus katto- ja lattiafunktioille, piin ja Neperin luvun likiarvoille, metodi joka tarkistaa onko muisti tyhjä, sekä toiminnallisuus kaikkien laskutoimitusten tulostamiseen.
+- Lisätty math moduuli, toiminnallisuus katto- ja lattiafunktioille, piin ja Neperin luvun likiarvoille, metodi joka tarkistaa onko muisti tyhjä, sekä toiminnallisuus kaikkien laskutoimitusten tulostamiseen.
 - Sovellus tunnistaa ja sivuuttaa NaN syötteiden laskutoimitukset sekä NaN tuloksen tallentamisen tietokantaan. Lisätty pandas kirjasto. 
