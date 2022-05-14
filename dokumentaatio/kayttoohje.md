@@ -1,5 +1,13 @@
 # User manual
 
+Download the [latest release](https://github.com/n0spoon/ot-harjoitustyo/releases/last) by selecting 'Source code' under Assets -section.
+
+
+## Database configuration
+
+User can configure database filename in _.env_-file.  Database will be named 'calculations.db' by default and placed in the _data_-folder if one doesn't already exist.
+
+
 ## Input and output
 
 **Input and output numbers are in base-10 and they can be integer or decimal separated with a dot(.) e.g. 2.5, 0.75, 3.1415.**  
@@ -8,6 +16,7 @@
 
 
 ## Installation
+
 - Install dependencies  
 ```bash
 poetry install
@@ -27,14 +36,17 @@ poetry run invoke start
 
 **Do not input decimals as fractions e.g. 1/2, 3/8 or 1/10, these won't be processed**  
 
+
 ## Note about Python-version
 
 Application has been tested with Python `3.8`.  Older version of Python might not function as intended.  
+
 
 ## Start
 
 Program opens a TUI (text-based user interface) that shows available commands.  
 ![Startup View](./photos/startup.png)  
+
 
 ## Usage
 
