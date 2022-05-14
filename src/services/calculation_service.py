@@ -1,4 +1,4 @@
-from math import pi, e, ceil, floor
+from math import pi, e, ceil, floor, isinf
 from pandas import isna
 from repositories.calculation_repository import CalculationRepository
 
@@ -252,6 +252,9 @@ class CalculationService:
             return ""
         try:
             var_x = self.string_to_number(var_a)
+            if isinf(var_x):
+                self.add_result(var_x)
+                return f"The ceiling value of {var_x} = {var_x}\n"
             result = ceil(var_x)
             self.add_result(result)
             return f"The ceiling value of {var_a} = {result}\n"
@@ -273,6 +276,9 @@ class CalculationService:
             return ""
         try:
             var_x = self.string_to_number(var_a)
+            if isinf(var_x):
+                self.add_result(var_x)
+                return f"The floor value of {var_x} = {var_x}\n"
             result = floor(var_x)
             self.add_result(result)
             return f"The floor value of {var_a} = {result}\n"

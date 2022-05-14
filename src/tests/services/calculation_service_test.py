@@ -42,8 +42,12 @@ class TestCalculatorService(unittest.TestCase):
             "tjt.234", "123.ke9?"), "")
 
     def test_sum_service_nan_input(self):
-        nan = float("NaN")
-        self.calculator.sum_service(nan, 42)
+        self.calculator.sum_service(float("NaN"), 42)
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_sum_service_nan_output(self):
+        self.assertEqual(self.calculator.sum_service(
+            "inf", "-inf"), "inf + -inf = nan\n")
         self.assertEqual(self.calculator.count(), 0)
 
     def test_sub_service_integer(self):
@@ -63,8 +67,12 @@ class TestCalculatorService(unittest.TestCase):
             "errorsana", "123.yep"), "")
 
     def test_sub_service_nan_input(self):
-        nan = float("Nan")
-        self.calculator.sub_service(983745.23, nan)
+        self.calculator.sub_service(983745.23, float("Nan"))
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_sub_service_nan_output(self):
+        self.assertEqual(self.calculator.sub_service(
+            "inf", "inf"), "inf - inf = nan\n")
         self.assertEqual(self.calculator.count(), 0)
 
     def test_mul_service_integer(self):
@@ -83,8 +91,7 @@ class TestCalculatorService(unittest.TestCase):
         self.assertEqual(self.calculator.mul_service("jih.959", "ierj"), "")
 
     def test_mul_service_nan_input(self):
-        nan = float("naN")
-        self.calculator.mul_service(nan, 0.123678)
+        self.calculator.mul_service(float("naN"), 0.123678)
         self.assertEqual(self.calculator.count(), 0)
 
     def test_div_service_integer(self):
@@ -115,8 +122,12 @@ class TestCalculatorService(unittest.TestCase):
         self.assertEqual(self.calculator.div_service("123.yep", 313), "")
 
     def test_div_service_nan_input(self):
-        nan = float("nAN")
-        self.calculator.div_service(0.0932486723, nan)
+        self.calculator.div_service(0.0932486723, float("nAN"))
+        self.assertEqual(self.calculator.count(), 0)
+
+    def test_div_service_nan_output(self):
+        self.assertEqual(self.calculator.div_service(
+            "-inf", "-inf"), "-inf / -inf = nan\n")
         self.assertEqual(self.calculator.count(), 0)
 
     def test_sqrt_service_negative_input(self):
@@ -134,8 +145,7 @@ class TestCalculatorService(unittest.TestCase):
         self.assertEqual(self.calculator.sqrt_service("123.yep"), "")
 
     def test_sqrt_service_nan_input(self):
-        nan = float("NaN")
-        self.calculator.sqrt_service(nan)
+        self.calculator.sqrt_service(float("NaN"))
         self.assertEqual(self.calculator.count(), 0)
 
     def test_exp_service_integer(self):
@@ -163,8 +173,7 @@ class TestCalculatorService(unittest.TestCase):
             0.69, "nopers"), "")
 
     def test_exp_service_nan_input(self):
-        nan = float("nan")
-        self.calculator.exp_service(908569.5783, nan)
+        self.calculator.exp_service(908569.5783, float("nan"))
         self.assertEqual(self.calculator.count(), 0)
 
     def test_inv_service_integer(self):
@@ -188,8 +197,7 @@ class TestCalculatorService(unittest.TestCase):
             "failings"), "")
 
     def test_inv_service_nan_input(self):
-        nan = float("NaN")
-        self.calculator.inv_service(nan)
+        self.calculator.inv_service(float("NaN"))
         self.assertEqual(self.calculator.count(), 0)
 
     def test_ceil_service_pi(self):
@@ -207,9 +215,18 @@ class TestCalculatorService(unittest.TestCase):
             "asdasd.0974"), "")
 
     def test_ceil_service_nan_input(self):
-        nan = float("NaN")
-        self.calculator.ceil_service(nan)
+        self.calculator.ceil_service(float("NaN"))
         self.assertEqual(self.calculator.count(), 0)
+
+    def test_ceil_service_inf_input(self):
+        self.assertEqual(self.calculator.ceil_service(
+            "inf"), "The ceiling value of inf = inf\n")
+        self.assertEqual(self.calculator.count(), 1)
+
+    def test_ceil_service_neg_inf_input(self):
+        self.assertEqual(self.calculator.ceil_service(
+            "-inf"), "The ceiling value of -inf = -inf\n")
+        self.assertEqual(self.calculator.count(), 1)
 
     def test_floor_service_pi(self):
         self.assertEqual(self.calculator.floor_service(
@@ -226,6 +243,15 @@ class TestCalculatorService(unittest.TestCase):
             "yepep.5678"), "")
 
     def test_floor_service_nan_input(self):
-        nan = float("nan")
-        self.calculator.floor_service(nan)
+        self.calculator.floor_service(float("nan"))
         self.assertEqual(self.calculator.count(), 0)
+
+    def test_floor_service_inf_input(self):
+        self.assertEqual(self.calculator.floor_service(
+            "inf"), "The floor value of inf = inf\n")
+        self.assertEqual(self.calculator.count(), 1)
+
+    def test_floor_service_neg_inf_input(self):
+        self.assertEqual(self.calculator.floor_service(
+            "-inf"), "The floor value of -inf = -inf\n")
+        self.assertEqual(self.calculator.count(), 1)
