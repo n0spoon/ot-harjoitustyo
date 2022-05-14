@@ -1,5 +1,5 @@
 # Calculator
-Application can perform calculations determined by user input.  
+Application can perform calculations and functions determined by user input.  Store, read and write calculation result data in a sqlite3 database.
 
 **Input and output numbers are in base-10 and they can be integer or decimal separated with a dot(.) e.g. 2.5, 0.75, 3.1415.**  
 
@@ -54,8 +54,12 @@ poetry run invoke lint
 
 - [Architectural Illustration](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 - [Changelog](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/changelog.md)
-- [Vaatimusmäärittely](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+- [Definition Document](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 - [Working Hours](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [User Manual](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+- [Testing Document](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/testing-document.md)
+
+## Releases
+
 - [Latest Release](https://github.com/n0spoon/ot-harjoitustyo/releases/latest)
 - [First Release](https://github.com/n0spoon/ot-harjoitustyo/releases/tag/viikko5)
-- [User Manual](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
