@@ -1,4 +1,5 @@
 # Calculator
+
 Application can perform calculations and functions determined by user input.  Store, read and write calculation result data in a sqlite3 database.
 
 **Input and output numbers are in base-10 and they can be integer or decimal separated with a dot(.) e.g. 2.5, 0.75, 3.1415.**  
@@ -26,9 +27,11 @@ poetry run invoke start
 
 **Do not input decimals as fractions e.g. 1/2, 3/8 or 1/10, these won't be processed**
 
+
 ## Note about Python-version
 
 Application has been tested with Python `3.8`.  Older versions of Python might not function as intended.
+
 
 ## Command line functions
 
@@ -50,6 +53,7 @@ poetry run invoke coverage-report
 poetry run invoke lint
 ```
 
+
 ## Documentation
 
 - [Architectural Illustration](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
@@ -59,7 +63,9 @@ poetry run invoke lint
 - [User Manual](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 - [Testing Document](https://github.com/n0spoon/ot-harjoitustyo/blob/master/dokumentaatio/testing-document.md)
 
+
 ## Releases
 
 - [Latest Release](https://github.com/n0spoon/ot-harjoitustyo/releases/latest)
-- [First Release](https://github.com/n0spoon/ot-harjoitustyo/releases/tag/viikko5)
+- [Second Release (week6)](https://github.com/n0spoon/ot-harjoitustyo/releases/tag/viikko6)
+- [First Release (week5)](https://github.com/n0spoon/ot-harjoitustyo/releases/tag/viikko5)
