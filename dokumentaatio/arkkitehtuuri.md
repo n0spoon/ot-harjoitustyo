@@ -201,4 +201,5 @@ Illustration of fetching last result in memory and clearing memory, while calcul
      User->>IO: "exit"
      IO->>IO: if command == "exit"
      IO->>IO: print("Exiting calculator..\n")
+     IO->>IO: break
 ```
