@@ -63,7 +63,7 @@ class IO:
         while True:
             command = input("Enter command: ")
             if command == "exit":
-                print(f"Exiting Calculator..\n")
+                print("Exiting Calculator..\n")
                 break
             if command == "?":
                 print("Calculations:", self._calculator.count(), "\n")

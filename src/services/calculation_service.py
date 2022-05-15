@@ -325,7 +325,9 @@ class CalculationService:
             to_return = ""
             for calculation in calculations:
                 to_return += calculation + ", "
-            return f"Calculations in memory: {to_return[:-2]}\n"
+                if self.count() == 1:
+                    return f"Calculation result in memory: {to_return[:-2]}\n"
+            return f"Calculation results in memory: {to_return[:-2]}\n"
         return "Error: Memory is empty.\n"
 
     def add_result(self, result):
