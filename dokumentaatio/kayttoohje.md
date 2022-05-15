@@ -59,9 +59,9 @@ A square root will result in a plusminus answer, that will count as one calculat
 
 
 Commands for utility.  
-![Utility Commands](./photos/utility-commands.png)
+![Utility Commands](./photos/utility-commands.png)  
 
 
-Example of finding volume of a cylinder with 23cm radius and 42cm height.  
+Example of finding volume of a cylinder with 23cm radius and 42cm height in litres.  
 ![Volume of a Cylinder](./photos/cylinder-volume.png)  
-In the end we divide the result by 1000 to get the volume in liters and round up manually, result ≈ 69.8L.  
+Formula for the volume is pi*(r^2)*h, so we calculate r^2 first, multiply pi with last result and multiply last result with 42 to get a volume of ≈ 69799.9cm^3.  One litre is 1000cm^3 therefore we divide the result by 1000 to get the volume in litres and round up using ceiling function, volume ≈ 70L.  
