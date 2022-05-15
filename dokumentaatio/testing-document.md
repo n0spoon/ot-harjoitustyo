@@ -40,3 +40,4 @@ All of the implemented functionalities in the [definition document](https://gith
 ## Existing quality issues
 
 - Cluttered error message when trying to use the last result in a calculation while memory is empty.
+- Input might need a restriction of how big a number an user can enter, massive calculations that don't have a practical use may cause halting.
