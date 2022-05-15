@@ -26,7 +26,7 @@ class CalculationRepository:
         cursor = self._db.cursor()
 
         cursor.execute(
-            "INSERT INTO Calculations (result) values (?)", [result])
+            "INSERT INTO Calculations (result) VALUES (?)", [result])
         self._db.commit()
 
     def print_calculations(self):
