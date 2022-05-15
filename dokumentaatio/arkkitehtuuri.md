@@ -50,7 +50,7 @@ Class _CalculationService_ forms and responds for application logic, which repre
 
 ![Package Structure and Classes](./photos/architecture-package-and-classes.png)
 
-_CalculationService_ can access and manage calculations in memory through _CalculationRepository_.
+_CalculationService_ can access and manage calculations in sqlite3 database memory through _CalculationRepository_.
 
 ## Main functionalities
 
@@ -76,11 +76,11 @@ Sequence diagram illustrating functionality of the application calculating 2 to 
      IO->>CalculationService: exp_service(2, 12)
      CalculationService->>CalculationService: result = 4096
      CalculationService->>CalculationService: add_result(result)
-     CalculationService->>CalculationRepository: add_calculation(content) 
+     CalculationService->>CalculationRepository: add_calculation(result) 
      CalculationService->>IO: "2^12 = 4096"
      IO->>IO: print("2^12 = 4096")
      IO->>User: input("Enter command: ")
-     User->>IO: "x"
-     IO->>IO: command = "x"
+     User->>IO: "exit"
+     IO->>IO: command = "exit"
      IO->>IO: print("Exiting Calculator..\n")
 ```
