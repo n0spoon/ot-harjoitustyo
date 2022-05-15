@@ -14,5 +14,6 @@
 | 09.05 | 7  | Lisätty sqlite3 tietojen pysyväystalletukseen ja toiminnallisuus sekä tiedon lisäämiseen että poistamiseen tietokannasta, eriytetty laskimen tietokanta ja testitietokanta, paranneltu docstring dokumentaatitoa |
 | 10.05 | 5  | Lisätty math moduuli, toiminnallisuus lattia- ja kattofunktioille, piin ja Neperin luvun likiarvoille, metodi joka tarkistaa onko muisti tyhjä, toiminnallisuus kaikkien laskutoimitusten tuloksien tulostamiseen.  Paranneltu käyttöohjetta ja lisätty uusia testejä |
 | 11.05 | 4  | Lisätty pandas kirjasto.  Sovellus tunnistaa not-a-number (NaN) syötteet, ja sivuuttaa niiden laskemisen sekä sivuuttaa NaN tuloksen tallentamisen tietokantaan.  Testit uusille toiminnallisuuksille |
-| 14.05 | 4  | Lattia- ja kattofunktiot osaavat käsitellä 'inf' tai '-inf' syötteen.  Testausdokumentti luotu.  Lisätty testejä ja siistitty koodia. |
-| yht.  | 64 |  |
+| 14.05 | 5  | Lattia- ja kattofunktiot osaavat käsitellä 'inf' tai '-inf' syötteen.  Testausdokumentti luotu.  Lisätty testejä ja siistitty koodia. |
+| 15.05 | 7  | Korjattu typoja sekä koodissa että dokumentaatiossa, testattu sovellusta virtuaaliympäristössä ja Cubbli fuksiläppärillä.  Korjattu ensimmäistä sekvenssidiagrammia arkkitehtuuri.md tiedostossa ja luotu kaksi uutta |
+| yht.  | 72 |  |
