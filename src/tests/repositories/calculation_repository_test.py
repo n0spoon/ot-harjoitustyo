@@ -148,7 +148,12 @@ class TestCalculationRepository(unittest.TestCase):
         self.calculator.div_service("1", 4)
         self.calculator.floor_service(4.313)
         self.assertEqual(self.calculator.return_calculations(),
-                         "Calculations in memory: ±2, 32, 0.2, 0.25, 4\n")
+                         "Calculation results in memory: ±2, 32, 0.2, 0.25, 4\n")
+
+    def test_print_one_calculation(self):
+        self.calculator.ceil_service(3.1415)
+        self.assertEqual(self.calculator.return_calculations(),
+                         "Calculation result in memory: 4\n")
 
     def test_add_nan_result(self):
         nan = float("NaN")
