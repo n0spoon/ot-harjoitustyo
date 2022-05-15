@@ -67,10 +67,10 @@ Sequence diagram illustrating functionality of the application calculating 2 to 
      IO->>IO: command == "exp"
      IO->>User: input("Enter first number: ")
      User->>IO: "2"
-     IO->>IO: var_a = 2
+     IO->>IO: var_a = "2"
      IO->>User: input("Enter second number: ")
      User->>IO: "12"
-     IO->>IO: var_b = 12
+     IO->>IO: var_b = "12"
      IO->>IO: callable(calculation)
      IO->>IO: True
      IO->>CalculationService: exp_service("2", "12")
@@ -105,7 +105,7 @@ Sequence diagram illustrating functionality of the application calculating 2 to 
      IO->>IO: break
 ```
 
-Illustration of application calculating the square root of 9, returning count and result of calculations in memory.
+Illustration of application calculating the square root of 9, returning count and result of calculations in memory.  
 
 ```mermaid
  sequenceDiagram
@@ -147,14 +147,58 @@ Illustration of application calculating the square root of 9, returning count an
      IO->>IO: command == "?"
      IO->>IO: if command == "?"
      IO->>IO: True
-     IO->>IO: print("Calculations: 1")
+     IO->>CalculationRepository: count_calculations()
+     CalculationRepository->>IO: int(2)
+     IO->>IO: print("Calculations: 2")
+     IO->>IO: continue
      IO->>User: input("Enter command: ")
      User->>IO: "print"
      IO->>IO: if command == "print"
      IO->>IO: True
-     IO->>IO: print("Calculation result in memory: ±3")
+     IO->>IO: print("Calculation results in memory: 4096, ±3\n")
+     IO->>IO: continue
+```
+
+
+Illustration of fetching last result in memory and clearing memory, while calculator is still running from the state of previous diagram.  
+
+```mermaid
+ sequenceDiagram
+     actor User
+     IO->>User: input("Enter command: ")
+     User->>IO: "last"
+     IO->>IO: if command == "last"
+     IO->>IO: True
+     IO->>IO: if not _calculator.memory_is_empty()
+     IO->>IO: True
+     IO->>CalculationService: _calculator.get_last_result()
+     CalculationService->>CalculationRepository: get_last()
+     CalculationRepository->>CalculationRepository: if not memory_is_empty()
+     CalculationRepository->>CalculationRepository: True
+     CalculationRepository->>CalculationRepository: cursor = _db.cursor()
+     CalculationRepository->>CalculationRepository: cursor.execute("SELECT * FROM Calculations ORDER BY rowid DESC LIMIT 1")
+     CalculationRepository->>CalculationRepository: result = cursor.fetchone()
+     CalculationRepository->>CalculationRepository: unpacked_result = dict(zip(result.keys(), result))
+     CalculationRepository->>CalculationRepository: return unpacked_result["result"]
+     CalculationRepository->>IO: "±3"
+     IO->>IO: print("Latest result in memory: ±3\n")
+     IO->>IO: continue
+     IO->>User: input("Enter command: ")
+     User->>IO: "clearall"
+     IO->>IO: if command == "clearall" or command == "ca"
+     IO->>IO: True
+     IO->>CalculationService: _calculator.clear_all_calculations()
+     CalculationService->>CalculationService: if not memory_is_empty()
+     CalculationService->>CalculationService: True
+     CalculationService->>CalculationRepository: clear_all()
+     CalculationRepository->>CalculationRepository: cursor = _db.cursor()
+     CalculationRepository->>CalculationRepository: cursor.execute("DELETE FROM Calculations")
+     CalculationRepository->>CalculationRepository: _db.commit()
+     CalculationService->>IO: "Cleared everything from memory.\n"
+     IO->>IO: print("Cleared everything from memory.\n")
+     IO->>IO: continue
      IO->>User: input("Enter command: ")
      User->>IO: "exit"
      IO->>IO: if command == "exit"
-     IO->>IO: print("Exiting Calculator...")
+     IO->>IO: print("Exiting calculator..\n")
 ```
