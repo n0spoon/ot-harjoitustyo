@@ -148,6 +148,10 @@ Illustration of application calculating the square root of 9, returning count an
      IO->>IO: if command == "?"
      IO->>IO: True
      IO->>CalculationRepository: count_calculations()
+     CalculationRepository->>CalculationRepository: cursor = _db.cursor()
+     CalculationRepository->>CalculationRepository: cursor.execute("SELECT * FROM Calculations")
+     CalculationRepository->>CalculationRepository: calculations = cursor.fetchall()
+     CalculationRepository->>CalculationRepository: return len(calculations)
      CalculationRepository->>IO: int(2)
      IO->>IO: print("Calculations: 2")
      IO->>IO: continue
